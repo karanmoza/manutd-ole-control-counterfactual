@@ -1,0 +1,4 @@
+scenario,mean_points,median_points,p10_points,p90_points,std_points
+actual_profile,16.02,16.0,11.0,21.0,3.96
+counterfactual_cdm,18.13,18.0,13.0,23.0,3.97
+casemiro_counterfactual,19.21,19.0,14.0,24.0,4.03

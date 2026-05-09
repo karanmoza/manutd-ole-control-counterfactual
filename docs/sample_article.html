@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manchester United Solved the Wrong Problem in 2021</title>
+  <style>
+    :root {
+      --bg: #f4efe8;
+      --paper: #fffdfa;
+      --ink: #1c2430;
+      --muted: #66717d;
+      --accent: #9f1d20;
+      --accent-soft: #ead2c8;
+      --navy: #18314d;
+      --gold: #b7891b;
+      --line: #ddd6ce;
+      --panel: #f8f3ec;
+      --quote: #f0e8de;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top right, rgba(159,29,32,0.06), transparent 28%),
+        linear-gradient(180deg, #f3eee7 0%, #fbf8f3 100%);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.75;
+    }
+
+    .page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 40px 18px 80px;
+    }
+
+    .article {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: 0 22px 50px rgba(16, 23, 31, 0.08);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 56px 64px 38px;
+      background: linear-gradient(135deg, rgba(234,210,200,0.55), rgba(255,253,250,0.96));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(159,29,32,0.08);
+      border: 1px solid rgba(159,29,32,0.14);
+      padding: 8px 11px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 4.4vw, 4.6rem);
+      line-height: 0.98;
+      margin: 0 0 16px;
+      letter-spacing: -0.04em;
+      max-width: 820px;
+    }
+
+    .subhead {
+      font-size: 1.18rem;
+      color: var(--muted);
+      max-width: 780px;
+      margin: 0 0 24px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .content {
+      padding: 42px 64px 64px;
+    }
+
+    p {
+      margin: 0 0 18px;
+      font-size: 1.08rem;
+    }
+
+    .lede {
+      font-size: 1.22rem;
+    }
+
+    h2 {
+      margin: 46px 0 14px;
+      font-size: 1.85rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin: 28px 0 24px;
+    }
+
+    .metric {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.85);
+    }
+
+    .metric .label {
+      display: block;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .metric .value {
+      display: block;
+      font-size: 1.75rem;
+      line-height: 1.05;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .quote {
+      margin: 28px 0;
+      padding: 22px 24px;
+      background: var(--quote);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      font-size: 1.12rem;
+    }
+
+    .figure {
+      margin: 28px 0 32px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .figure img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      background: white;
+    }
+
+    .figure-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin: 26px 0 32px;
+    }
+
+    .caption {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-top: 12px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 24px 0 30px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: white;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.98rem;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid #ece6de;
+      vertical-align: top;
+    }
+
+    th {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      background: #faf7f2;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .method-box {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 20px;
+      margin: 30px 0;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+    }
+
+    .panel h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    ul {
+      margin: 0 0 18px 20px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.03rem;
+    }
+
+    .footnote {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero, .content {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .method-box {
+        grid-template-columns: 1fr;
+      }
+
+      .figure-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <article class="article">
+      <header class="hero">
+        <div class="eyebrow">Sample Substack Draft</div>
+        <h1>Manchester United Solved the Wrong Problem in 2021</h1>
+        <p class="subhead">A match-level counterfactual built on real public data suggests that replacing Cristiano Ronaldo with a control-oriented midfielder would probably have improved Manchester United, but only within the limits of a team that was already deteriorating.</p>
+        <div class="meta">
+          <span>Portfolio article draft</span>
+          <span>Built from the OGS counterfactual project</span>
+          <span>Data: Understat match-level Premier League data</span>
+        </div>
+      </header>
+
+      <div class="content">
+        <p class="lede">The most revealing thing about Manchester United's 2021 summer is not that they signed Cristiano Ronaldo. It is what the signing implied about how they understood their own weakness.</p>
+
+        <p>Ronaldo was a glamorous answer: goals, aura, history, and instant emotional payoff. If the problem was a shortage of ruthlessness, the move almost explained itself.</p>
+
+        <p>But high-profile decisions are not always high-quality decisions. The strategic question is whether United used an elite resource on the capability they most urgently lacked.</p>
+
+        <p>This project tests that question through a disciplined counterfactual. What if United had not signed Ronaldo in summer 2021 and had instead added a control-oriented defensive midfielder? Not a magical fix. Just a more structurally useful player profile for a team that increasingly looked unstable without the ball.</p>
+
+        <div class="summary-grid">
+          <div class="metric">
+            <span class="label">2020/21 Points</span>
+            <span class="value">74</span>
+          </div>
+          <div class="metric">
+            <span class="label">2021/22 Actual Points</span>
+            <span class="value">58</span>
+          </div>
+          <div class="metric">
+            <span class="label">Generic CDM Scenario</span>
+            <span class="value">About 61</span>
+          </div>
+          <div class="metric">
+            <span class="label">Casemiro Scenario</span>
+            <span class="value">About 64.5</span>
+          </div>
+        </div>
+
+        <div class="quote"><strong>Main thesis:</strong> United may not have needed another star in 2021 as much as they needed control. The data suggests a better midfield fit probably helps. It does not suggest one transfer would have fixed the club.</div>
+
+        <h2>First, Show The Drop-Off</h2>
+
+        <p>If a counterfactual is going to be persuasive, the decline has to be visible before the model arrives. So the first question is not about Ronaldo at all. It is whether United's team profile actually worsened from 2020/21 into 2021/22.</p>
+
+        <p>It did. The points drop is obvious, but the underlying process worsened too. The team became less stable, conceded more danger, and lost the positive xG margin that supported the previous season. That points to a structural problem, not merely a spell of bad finishing luck.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Season Window</th>
+                <th>Matches</th>
+                <th>Points</th>
+                <th>Points / Match</th>
+                <th>xG / Match</th>
+                <th>xGA / Match</th>
+                <th>xG Diff / Match</th>
+                <th>Shots Against / Match</th>
+                <th>xPts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2020/21 baseline</td>
+                <td>38</td>
+                <td>74</td>
+                <td>1.95</td>
+                <td>1.66</td>
+                <td>1.10</td>
+                <td>+0.56</td>
+                <td>11.37</td>
+                <td>64.18</td>
+              </tr>
+              <tr>
+                <td>2021/22 to Ole exit</td>
+                <td>12</td>
+                <td>17</td>
+                <td>1.42</td>
+                <td>1.56</td>
+                <td>1.76</td>
+                <td>-0.20</td>
+                <td>13.58</td>
+                <td>15.98</td>
+              </tr>
+              <tr>
+                <td>2021/22 full season</td>
+                <td>38</td>
+                <td>58</td>
+                <td>1.53</td>
+                <td>1.51</td>
+                <td>1.50</td>
+                <td>+0.01</td>
+                <td>13.47</td>
+                <td>54.51</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="figure">
+          <img src="../outputs/figures/year_over_year_points.png" alt="Year-over-year points profile chart">
+          <div class="caption">United fell from 1.95 points per match in 2020/21 to 1.42 by Ole's exit, before recovering only slightly to 1.53 over the full 2021/22 season.</div>
+        </div>
+
+        <div class="figure">
+          <img src="../outputs/figures/year_over_year_profile.png" alt="Year-over-year team profile chart">
+          <div class="caption">The decline was more than a table position story. United conceded more danger, allowed more shots, and lost their positive xG cushion relative to the previous year.</div>
+        </div>
+
+        <div class="figure-grid">
+          <div class="figure">
+            <img src="../outputs/figures/rolling_xg_difference.png" alt="Rolling xG difference chart">
+            <div class="caption">One of the core charts in the piece. The rolling xG trend makes the instability visible: United moved from a positive underlying profile in 2020/21 to a much less controlled shape in the 2021/22 start.</div>
+          </div>
+          <div class="figure">
+            <img src="../outputs/figures/defensive_fragility_trend.png" alt="Defensive fragility trend chart">
+            <div class="caption">Defensive fragility was visible in real time, with both chance quality conceded and pressure allowed moving in the wrong direction.</div>
+          </div>
+        </div>
+
+        <p>That is the key setup. Once the decline is visible on its own terms, the counterfactual becomes more grounded. The question shifts from fantasy to fit: if the problem was loss of control, would a different type of signing have addressed it more effectively than another elite attacker?</p>
+
+        <h2>Why This Looks More Like A Control Problem Than A Finishing Problem</h2>
+
+        <p>United did not simply need more goals. They needed more stability. That distinction matters because different transfer choices solve different types of problems.</p>
+
+        <p>Ronaldo solves a visible problem. He offers finishing, profile, and game-winning moments. A strong defensive midfielder solves a less glamorous but more structural problem: reducing the cost of losing midfield control.</p>
+
+        <p>The pre- and post-Ronaldo split is not perfect evidence, but it helps show why the squad question matters. After Ronaldo's arrival, attacking output did not vanish. What became more obvious was the fragility underneath it.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Period</th>
+                <th>Matches</th>
+                <th>Points</th>
+                <th>Goals For</th>
+                <th>Goals Against</th>
+                <th>xG</th>
+                <th>xGA</th>
+                <th>Shots Against</th>
+                <th>xPts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Pre-Ronaldo</td>
+                <td>3</td>
+                <td>7</td>
+                <td>2.33</td>
+                <td>0.67</td>
+                <td>1.62</td>
+                <td>0.98</td>
+                <td>11.00</td>
+                <td>5.39</td>
+              </tr>
+              <tr>
+                <td>Post-Ronaldo</td>
+                <td>9</td>
+                <td>10</td>
+                <td>1.44</td>
+                <td>2.11</td>
+                <td>1.54</td>
+                <td>2.01</td>
+                <td>14.44</td>
+                <td>10.59</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="figure-grid">
+          <div class="figure">
+            <img src="../outputs/figures/pre_post_ronaldo_profile.png" alt="Pre and post Ronaldo comparison chart">
+            <div class="caption">The pre/post split points toward the same story: the bigger deterioration came through instability and concession profile, not simply lack of firepower.</div>
+          </div>
+          <div class="figure">
+            <img src="../outputs/figures/actual_vs_expected_points.png" alt="Actual versus expected points chart">
+            <div class="caption">Up to Ole's exit, United's expected-points path also lagged the previous season's standard. The season looked fragile before hindsight hardened the verdict.</div>
+          </div>
+        </div>
+
+        <h2>What I Actually Modeled</h2>
+
+        <div class="method-box">
+          <div class="panel">
+            <h3>Data and Model</h3>
+            <p>I used real public match-level Premier League data for Manchester United's 2020/21 season, the 2021/22 stretch up to Ole Gunnar Solskjaer's exit, and the full 2021/22 campaign. The core variables were goals, xG, xGA, shots for, and shots against. I then simulated match outcomes with a Poisson goal model to estimate win, draw, and loss probabilities under alternative team profiles.</p>
+          </div>
+          <div class="panel">
+            <h3>Counterfactual Logic</h3>
+            <ul>
+              <li>Without Ronaldo, attacking output falls slightly.</li>
+              <li>A defensive midfielder improves defensive stability and shot suppression.</li>
+              <li>The generic CDM scenario is the main case.</li>
+              <li>The Casemiro scenario is a secondary upper-bound illustration, not the primary causal claim.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>The "generic CDM" is not meant to be a mystery player. It stands for a real capability type that was on the market in summer 2021. Manuel Locatelli and Boubakary Soumare are useful anchors for that profile, even though the simulation itself remains team-level rather than player-specific.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Assumption</th>
+                <th>Value</th>
+                <th>Interpretation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>attack_xg_multiplier</td>
+                <td>0.94</td>
+                <td>Slight reduction in attacking output without Ronaldo</td>
+              </tr>
+              <tr>
+                <td>control_xg_bonus</td>
+                <td>0.05</td>
+                <td>Small control-driven attack compensation from better midfield balance</td>
+              </tr>
+              <tr>
+                <td>defensive_xga_multiplier</td>
+                <td>0.86</td>
+                <td>Generic CDM improves defensive stability</td>
+              </tr>
+              <tr>
+                <td>defensive_shots_against_multiplier</td>
+                <td>0.90</td>
+                <td>Counterfactual team concedes fewer shots overall</td>
+              </tr>
+              <tr>
+                <td>shot_suppression_xga_bonus</td>
+                <td>0.012</td>
+                <td>Extra xGA reduction tied to controlling volume</td>
+              </tr>
+              <tr>
+                <td>casemiro_defensive_xga_multiplier</td>
+                <td>0.82</td>
+                <td>Stronger defensive effect in the named Casemiro scenario</td>
+              </tr>
+              <tr>
+                <td>casemiro_control_xg_bonus</td>
+                <td>0.07</td>
+                <td>Slightly larger control bonus in possession</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>This is not an all-knowing football oracle. It is a transparent scenario model. Its value lies in clear assumptions and disciplined comparison, not in pretending to deliver certainty.</p>
+
+        <p>The multiplier values are judgment-based scenario bands, not empirically estimated coefficients. The base case represents a strong first-team solution that slightly reduces attacking edge without Ronaldo but meaningfully improves defensive protection and midfield balance. The mild and strong cases test how dependent the conclusion is on softer or firmer versions of that same football idea.</p>
+
+        <h2>Ole's Exit Horizon: A Better Midfield Fit Helps Early</h2>
+
+        <p>The first horizon is Solskjaer's exit in November 2021. That matters because it lets us ask whether a different squad build might have changed the trajectory before the season fully unspooled.</p>
+
+        <p>Here the effect is positive but not explosive. United took 17 actual league points in the Ole window. The generic CDM scenario raises that to about 18.1 simulated points. The stronger Casemiro-style case lifts the mean to about 19.2 points.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th>Mean Points</th>
+                <th>Median</th>
+                <th>10th Percentile</th>
+                <th>90th Percentile</th>
+                <th>Interpretation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Actual profile simulation</td>
+                <td>16.02</td>
+                <td>16</td>
+                <td>11</td>
+                <td>21</td>
+                <td>The model's baseline read of the observed team</td>
+              </tr>
+              <tr>
+                <td>Generic elite CDM</td>
+                <td>18.13</td>
+                <td>18</td>
+                <td>13</td>
+                <td>23</td>
+                <td>Main counterfactual case</td>
+              </tr>
+              <tr>
+                <td>Casemiro-style scenario</td>
+                <td>19.21</td>
+                <td>19</td>
+                <td>14</td>
+                <td>24</td>
+                <td>Upper-bound named case</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="figure">
+          <img src="../outputs/figures/scenario_comparison.png" alt="Ole-exit scenario comparison chart">
+          <div class="caption">By Ole's exit, a control-oriented midfield alternative improves the expected points profile, but not enough to erase every problem in the team.</div>
+        </div>
+
+        <h2>Full Season: Helpful, Plausible, Still Not Transformational</h2>
+
+        <p>Across the full league season, United actually finished on 58 points. The generic CDM scenario raises that to about 61.2 points. That is meaningful, but it is not a totally different season. It suggests the team likely improves with more control, but not enough to escape the broader institutional weakness around it.</p>
+
+        <p>The Casemiro-specific scenario is more aggressive. That version raises the mean to roughly 64.5 points. It is also the one that deserves the most caution. Casemiro works best as a named upper-bound case, not as the article's main proof.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th>Observed / Mean Points</th>
+                <th>Delta vs Actual</th>
+                <th>Reading</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Actual 2021/22 season</td>
+                <td>58.0</td>
+                <td>-</td>
+                <td>Observed outcome</td>
+              </tr>
+              <tr>
+                <td>Generic elite CDM</td>
+                <td>61.16</td>
+                <td>+3.16</td>
+                <td>Meaningful uplift, but not a transformation</td>
+              </tr>
+              <tr>
+                <td>Casemiro-style scenario</td>
+                <td>64.47</td>
+                <td>+6.47</td>
+                <td>Stronger upside under a better-fit midfield addition</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="figure">
+          <img src="../outputs/figures/full_season_points_comparison.png" alt="Full season points comparison">
+          <div class="caption">The generic CDM scenario clears the actual points total, but only modestly. That is exactly why the result feels believable.</div>
+        </div>
+
+        <div class="figure-grid">
+          <div class="figure">
+            <img src="../outputs/figures/full_season_scenario_comparison.png" alt="Full season scenario comparison chart">
+            <div class="caption">The full-season comparison makes the trade-off legible: more midfield control produces a higher expected total, but not a title-level jump.</div>
+          </div>
+          <div class="figure">
+            <img src="../outputs/figures/full_season_simulation_distribution.png" alt="Full season simulation distribution">
+            <div class="caption">The distribution matters more than one number. The counterfactual shifts the whole points band upward rather than generating one neat deterministic answer.</div>
+          </div>
+        </div>
+
+        <h2>Does The Conclusion Depend On One Convenient Assumption Set?</h2>
+
+        <p>That is the obvious challenge to any counterfactual model, and it is a fair one. So I tested the generic CDM case under a mild, base, and strong set of assumptions rather than relying on one exact multiplier choice.</p>
+
+        <p>The full-season result still leans in the same direction across all three versions. The mild case only lifts United to about 58.5 points, barely above the actual season. The base case lands at about 61.2, and the strong case rises to about 64.6. The exact magnitude is assumption-sensitive, but the broader story survives.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Sensitivity Case</th>
+                <th>Mean Points</th>
+                <th>Delta vs Actual</th>
+                <th>Interpretation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Observed actual</td>
+                <td>58.00</td>
+                <td>0.00</td>
+                <td>What actually happened</td>
+              </tr>
+              <tr>
+                <td>Mild generic CDM</td>
+                <td>58.45</td>
+                <td>+0.45</td>
+                <td>Very limited uplift under conservative assumptions</td>
+              </tr>
+              <tr>
+                <td>Base generic CDM</td>
+                <td>61.16</td>
+                <td>+3.16</td>
+                <td>Main scenario used throughout the article</td>
+              </tr>
+              <tr>
+                <td>Strong generic CDM</td>
+                <td>64.56</td>
+                <td>+6.56</td>
+                <td>Upper-end but still directionally plausible case</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="figure">
+          <img src="../outputs/figures/sensitivity_analysis.png" alt="Sensitivity analysis chart">
+          <div class="caption">The exact uplift changes as the assumptions change, but the underlying conclusion remains stable: a more control-oriented squad build looks more useful than the observed one.</div>
+        </div>
+
+        <h2>Why The Casemiro Version Works Best As A Secondary Case</h2>
+
+        <p>Casemiro is useful because United eventually bought this exact type of player in 2022. That makes him a powerful historical anchor. But it also makes him potentially misleading if he becomes the whole article. The stronger the named-player case becomes, the more the piece risks turning into hindsight fan fiction.</p>
+
+        <p>That is why the generic CDM should remain the core argument. It is the cleaner strategy claim. The Casemiro case then becomes the sharper secondary takeaway: if the fit had been unusually strong, the gains may have been meaningfully larger than the baseline counterfactual suggests.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th>Ole Exit Mean Points</th>
+                <th>Full Season Mean Points</th>
+                <th>Interpretation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Actual observed season</td>
+                <td>17.0</td>
+                <td>58.0</td>
+                <td>What actually happened</td>
+              </tr>
+              <tr>
+                <td>Generic elite CDM</td>
+                <td>18.13</td>
+                <td>61.16</td>
+                <td>Main counterfactual case</td>
+              </tr>
+              <tr>
+                <td>Casemiro-style scenario</td>
+                <td>19.21</td>
+                <td>64.47</td>
+                <td>Secondary upper-bound named case</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>What This Does Not Prove</h2>
+
+        <p>This model does not prove that Ronaldo caused United's decline. It does not prove that Casemiro would definitely have delivered 64 or 65 points. It does not prove that one better transfer would have solved the whole institution.</p>
+
+        <p>What it does show is narrower and, in some ways, more useful. It shows that once you model United as a team that needed more control and protection rather than more star finishing, the results improve in a plausible way. That is enough to support a serious strategic conclusion.</p>
+
+        <div class="quote"><strong>The real lesson:</strong> Ronaldo may not have been the whole problem. But he may have been the clearest sign that United misdiagnosed what kind of solution they actually needed.</div>
+
+        <h2>So What Should The Reader Believe?</h2>
+
+        <p>The reader should not come away believing that Ronaldo ruined Ole. That is too simple and the model does not support it. The better conclusion is that Manchester United likely invested in the most visible solution rather than the most structurally useful one.</p>
+
+        <p>The generic CDM scenario says the improvement was real but limited. The Casemiro scenario says that a much better fit in midfield could have made a larger difference. Together, those results point to the same core idea: United probably solved the wrong problem in 2021, but they were also an institution with deeper problems than one transfer could fix.</p>
+
+        <div class="footnote">This HTML file is a sample longform article draft built from the project's real-data outputs. It is intended as a reference structure for a future Substack piece, not as a final publication text.</div>
+      </div>
+    </article>
+  </div>
+</body>
+</html>

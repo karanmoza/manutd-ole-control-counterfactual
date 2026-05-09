@@ -1,0 +1,115 @@
+date,opponent,scenario,win_probability,draw_probability,loss_probability,expected_points
+2021-08-14,Leeds,actual_profile,0.6342,0.2407,0.1251,2.1433
+2021-08-14,Leeds,counterfactual_cdm,0.6916,0.2282,0.0802,2.303
+2021-08-14,Leeds,casemiro_counterfactual,0.7101,0.2237,0.0662,2.354
+2021-08-22,Southampton,actual_profile,0.7612,0.1601,0.0787,2.4437
+2021-08-22,Southampton,counterfactual_cdm,0.7864,0.1563,0.0573,2.5155
+2021-08-22,Southampton,casemiro_counterfactual,0.7999,0.1535,0.0466,2.5532
+2021-08-29,Wolverhampton Wanderers,actual_profile,0.2004,0.2303,0.5693,0.8315
+2021-08-29,Wolverhampton Wanderers,counterfactual_cdm,0.2631,0.2794,0.4575,1.0687
+2021-08-29,Wolverhampton Wanderers,casemiro_counterfactual,0.2923,0.2807,0.427,1.1576
+2021-09-11,Newcastle United,actual_profile,0.8256,0.1181,0.0563,2.5949
+2021-09-11,Newcastle United,counterfactual_cdm,0.8481,0.1152,0.0367,2.6595
+2021-09-11,Newcastle United,casemiro_counterfactual,0.8661,0.1048,0.0291,2.7031
+2021-09-19,West Ham,actual_profile,0.4384,0.2183,0.3433,1.5335
+2021-09-19,West Ham,counterfactual_cdm,0.508,0.2312,0.2608,1.7552
+2021-09-19,West Ham,casemiro_counterfactual,0.5436,0.2259,0.2305,1.8567
+2021-09-25,Aston Villa,actual_profile,0.454,0.228,0.318,1.59
+2021-09-25,Aston Villa,counterfactual_cdm,0.5165,0.228,0.2555,1.7775
+2021-09-25,Aston Villa,casemiro_counterfactual,0.5504,0.2161,0.2335,1.8673
+2021-10-02,Everton,actual_profile,0.2971,0.2758,0.4271,1.1671
+2021-10-02,Everton,counterfactual_cdm,0.3619,0.3079,0.3302,1.3936
+2021-10-02,Everton,casemiro_counterfactual,0.3886,0.315,0.2964,1.4808
+2021-10-16,Leicester,actual_profile,0.0996,0.1328,0.7676,0.4316
+2021-10-16,Leicester,counterfactual_cdm,0.1527,0.187,0.6603,0.6451
+2021-10-16,Leicester,casemiro_counterfactual,0.1782,0.2065,0.6153,0.7411
+2021-10-24,Liverpool,actual_profile,0.0782,0.0849,0.8369,0.3195
+2021-10-24,Liverpool,counterfactual_cdm,0.1164,0.1336,0.75,0.4828
+2021-10-24,Liverpool,casemiro_counterfactual,0.1382,0.1499,0.7119,0.5645
+2021-10-30,Tottenham,actual_profile,0.4205,0.2608,0.3187,1.5223
+2021-10-30,Tottenham,counterfactual_cdm,0.4751,0.2878,0.2371,1.7131
+2021-10-30,Tottenham,casemiro_counterfactual,0.5013,0.2814,0.2173,1.7853
+2021-11-06,Manchester City,actual_profile,0.1302,0.1962,0.6736,0.5868
+2021-11-06,Manchester City,counterfactual_cdm,0.1757,0.2564,0.5679,0.7835
+2021-11-06,Manchester City,casemiro_counterfactual,0.2021,0.2643,0.5336,0.8706
+2021-11-20,Watford,actual_profile,0.2222,0.1759,0.6019,0.8425
+2021-11-20,Watford,counterfactual_cdm,0.3045,0.2042,0.4913,1.1177
+2021-11-20,Watford,casemiro_counterfactual,0.3347,0.2166,0.4487,1.2207
+2021-11-28,Chelsea,actual_profile,0.0727,0.1574,0.7699,0.3755
+2021-11-28,Chelsea,counterfactual_cdm,0.1195,0.2235,0.657,0.582
+2021-11-28,Chelsea,casemiro_counterfactual,0.1489,0.2559,0.5952,0.7026
+2021-12-02,Arsenal,actual_profile,0.5338,0.2326,0.2336,1.834
+2021-12-02,Arsenal,counterfactual_cdm,0.6011,0.2392,0.1597,2.0425
+2021-12-02,Arsenal,casemiro_counterfactual,0.6582,0.2132,0.1286,2.1878
+2021-12-05,Crystal Palace,actual_profile,0.4222,0.3696,0.2082,1.6362
+2021-12-05,Crystal Palace,counterfactual_cdm,0.462,0.3918,0.1462,1.7778
+2021-12-05,Crystal Palace,casemiro_counterfactual,0.4866,0.3972,0.1162,1.857
+2021-12-11,Norwich,actual_profile,0.6278,0.2059,0.1663,2.0893
+2021-12-11,Norwich,counterfactual_cdm,0.6767,0.2015,0.1218,2.2316
+2021-12-11,Norwich,casemiro_counterfactual,0.7136,0.1865,0.0999,2.3273
+2021-12-27,Newcastle United,actual_profile,0.4886,0.2375,0.2739,1.7033
+2021-12-27,Newcastle United,counterfactual_cdm,0.5535,0.2403,0.2062,1.9008
+2021-12-27,Newcastle United,casemiro_counterfactual,0.5819,0.2381,0.18,1.9838
+2021-12-30,Burnley,actual_profile,0.5867,0.2368,0.1765,1.9969
+2021-12-30,Burnley,counterfactual_cdm,0.6546,0.222,0.1234,2.1858
+2021-12-30,Burnley,casemiro_counterfactual,0.6732,0.2178,0.109,2.2374
+2022-01-03,Wolverhampton Wanderers,actual_profile,0.3024,0.3538,0.3438,1.261
+2022-01-03,Wolverhampton Wanderers,counterfactual_cdm,0.3937,0.3884,0.2179,1.5695
+2022-01-03,Wolverhampton Wanderers,casemiro_counterfactual,0.4275,0.414,0.1585,1.6965
+2022-01-15,Aston Villa,actual_profile,0.2858,0.2239,0.4903,1.0813
+2022-01-15,Aston Villa,counterfactual_cdm,0.3516,0.2544,0.394,1.3092
+2022-01-15,Aston Villa,casemiro_counterfactual,0.3867,0.2614,0.3519,1.4215
+2022-01-19,Brentford,actual_profile,0.3948,0.205,0.4002,1.3894
+2022-01-19,Brentford,counterfactual_cdm,0.4756,0.217,0.3074,1.6438
+2022-01-19,Brentford,casemiro_counterfactual,0.5166,0.2128,0.2706,1.7626
+2022-01-22,West Ham,actual_profile,0.7542,0.1986,0.0472,2.4612
+2022-01-22,West Ham,counterfactual_cdm,0.7604,0.2011,0.0385,2.4823
+2022-01-22,West Ham,casemiro_counterfactual,0.7613,0.2019,0.0368,2.4858
+2022-02-08,Burnley,actual_profile,0.6317,0.2161,0.1522,2.1112
+2022-02-08,Burnley,counterfactual_cdm,0.6641,0.2226,0.1133,2.2149
+2022-02-08,Burnley,casemiro_counterfactual,0.694,0.2145,0.0915,2.2965
+2022-02-12,Southampton,actual_profile,0.8321,0.1131,0.0548,2.6094
+2022-02-12,Southampton,counterfactual_cdm,0.866,0.0996,0.0344,2.6976
+2022-02-12,Southampton,casemiro_counterfactual,0.8844,0.0893,0.0263,2.7425
+2022-02-15,Brighton,actual_profile,0.6851,0.1544,0.1605,2.2097
+2022-02-15,Brighton,counterfactual_cdm,0.7314,0.1569,0.1117,2.3511
+2022-02-15,Brighton,casemiro_counterfactual,0.745,0.1535,0.1015,2.3885
+2022-02-20,Leeds,actual_profile,0.56,0.1925,0.2475,1.8725
+2022-02-20,Leeds,counterfactual_cdm,0.6254,0.1855,0.1891,2.0617
+2022-02-20,Leeds,casemiro_counterfactual,0.6603,0.178,0.1617,2.1589
+2022-02-26,Watford,actual_profile,0.811,0.1355,0.0535,2.5685
+2022-02-26,Watford,counterfactual_cdm,0.8438,0.1282,0.028,2.6596
+2022-02-26,Watford,casemiro_counterfactual,0.8572,0.1189,0.0239,2.6905
+2022-03-06,Manchester City,actual_profile,0.0312,0.1032,0.8656,0.1968
+2022-03-06,Manchester City,counterfactual_cdm,0.0571,0.1715,0.7714,0.3428
+2022-03-06,Manchester City,casemiro_counterfactual,0.0737,0.2019,0.7244,0.423
+2022-03-12,Tottenham,actual_profile,0.2336,0.2477,0.5187,0.9485
+2022-03-12,Tottenham,counterfactual_cdm,0.2935,0.282,0.4245,1.1625
+2022-03-12,Tottenham,casemiro_counterfactual,0.3153,0.2912,0.3935,1.2371
+2022-04-02,Leicester,actual_profile,0.2964,0.3107,0.3929,1.1999
+2022-04-02,Leicester,counterfactual_cdm,0.3589,0.3479,0.2932,1.4246
+2022-04-02,Leicester,casemiro_counterfactual,0.3897,0.3465,0.2638,1.5156
+2022-04-09,Everton,actual_profile,0.4215,0.4249,0.1536,1.6894
+2022-04-09,Everton,counterfactual_cdm,0.461,0.4384,0.1006,1.8214
+2022-04-09,Everton,casemiro_counterfactual,0.4834,0.4285,0.0881,1.8787
+2022-04-16,Norwich,actual_profile,0.364,0.2213,0.4147,1.3133
+2022-04-16,Norwich,counterfactual_cdm,0.4284,0.2449,0.3267,1.5301
+2022-04-16,Norwich,casemiro_counterfactual,0.4651,0.2461,0.2888,1.6414
+2022-04-19,Liverpool,actual_profile,0.012,0.1175,0.8705,0.1535
+2022-04-19,Liverpool,counterfactual_cdm,0.0378,0.2017,0.7605,0.3151
+2022-04-19,Liverpool,casemiro_counterfactual,0.0408,0.2157,0.7435,0.3381
+2022-04-23,Arsenal,actual_profile,0.3111,0.1931,0.4958,1.1264
+2022-04-23,Arsenal,counterfactual_cdm,0.3863,0.2109,0.4028,1.3698
+2022-04-23,Arsenal,casemiro_counterfactual,0.4273,0.2088,0.3639,1.4907
+2022-04-28,Chelsea,actual_profile,0.0748,0.1458,0.7794,0.3702
+2022-04-28,Chelsea,counterfactual_cdm,0.1161,0.2112,0.6727,0.5595
+2022-04-28,Chelsea,casemiro_counterfactual,0.1499,0.2375,0.6126,0.6872
+2022-05-02,Brentford,actual_profile,0.6616,0.2139,0.1245,2.1987
+2022-05-02,Brentford,counterfactual_cdm,0.7013,0.2116,0.0871,2.3155
+2022-05-02,Brentford,casemiro_counterfactual,0.7275,0.2064,0.0661,2.3889
+2022-05-07,Brighton,actual_profile,0.0936,0.1365,0.7699,0.4173
+2022-05-07,Brighton,counterfactual_cdm,0.1483,0.1923,0.6594,0.6372
+2022-05-07,Brighton,casemiro_counterfactual,0.1696,0.2045,0.6259,0.7133
+2022-05-22,Crystal Palace,actual_profile,0.42,0.4283,0.1517,1.6883
+2022-05-22,Crystal Palace,counterfactual_cdm,0.467,0.4277,0.1053,1.8287
+2022-05-22,Crystal Palace,casemiro_counterfactual,0.4886,0.4256,0.0858,1.8914

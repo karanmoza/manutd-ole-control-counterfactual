@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OGS Project Explainer</title>
+  <style>
+    :root {
+      --bg: #f4efe8;
+      --paper: #fffdfa;
+      --ink: #1d2430;
+      --muted: #65707c;
+      --accent: #9f1d20;
+      --navy: #17314c;
+      --gold: #b48822;
+      --line: #ddd6ce;
+      --panel: #f8f3ec;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top right, rgba(159, 29, 32, 0.06), transparent 30%),
+        linear-gradient(180deg, #f3eee7 0%, #fbf8f3 100%);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 36px 18px 72px;
+    }
+
+    .doc {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 22px 50px rgba(16, 23, 31, 0.08);
+    }
+
+    .hero {
+      padding: 48px 56px 30px;
+      background: linear-gradient(135deg, rgba(234, 210, 200, 0.55), rgba(255, 253, 250, 0.96));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(159, 29, 32, 0.14);
+      background: rgba(159, 29, 32, 0.08);
+      color: var(--accent);
+      font: 700 12px/1 "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.5rem, 4vw, 4.2rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      max-width: 840px;
+    }
+
+    .subhead {
+      max-width: 840px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .content {
+      padding: 38px 56px 56px;
+    }
+
+    h2 {
+      margin: 40px 0 14px;
+      font-size: 1.8rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 24px 0 10px;
+      font-size: 1.15rem;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    p {
+      margin: 0 0 16px;
+      font-size: 1.05rem;
+    }
+
+    .lede {
+      font-size: 1.18rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .card .label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font: 700 0.8rem/1.2 "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .card .value {
+      display: block;
+      color: var(--accent);
+      font-size: 1.7rem;
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
+    .panel {
+      margin: 22px 0;
+      padding: 20px 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .quote {
+      margin: 26px 0;
+      padding: 20px 22px;
+      background: #f0e8de;
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      font-size: 1.08rem;
+    }
+
+    ul {
+      margin: 0 0 16px 20px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.03rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 24px 0;
+    }
+
+    .qa {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      padding: 18px;
+      margin-bottom: 14px;
+    }
+
+    .qa strong {
+      display: block;
+      margin-bottom: 8px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      color: var(--navy);
+    }
+
+    code {
+      padding: 2px 6px;
+      border-radius: 6px;
+      background: #f3eee7;
+      font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    .footer {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero, .content {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <article class="doc">
+      <header class="hero">
+        <div class="eyebrow">Interview Prep Guide</div>
+        <h1>Manchester United 2021 Counterfactual Project Explained</h1>
+        <p class="subhead">A full briefing on the OGS project: what it asks, how it works, what the theory means, what the results say, and how to answer tough interviewer questions without overselling the model.</p>
+      </header>
+
+      <div class="content">
+        <p class="lede">This project asks a sports-strategy question with a business lens: if Manchester United had not signed Cristiano Ronaldo in summer 2021, and had instead signed a control-oriented defensive midfielder, how might the season have looked up to Ole Gunnar Solskjaer’s exit and across the full <code>2021/22</code> campaign?</p>
+
+        <div class="grid">
+          <div class="card">
+            <span class="label">2020/21 Points</span>
+            <span class="value">74</span>
+          </div>
+          <div class="card">
+            <span class="label">2021/22 Actual Points</span>
+            <span class="value">58</span>
+          </div>
+          <div class="card">
+            <span class="label">Generic CDM Model</span>
+            <span class="value">61.16</span>
+          </div>
+          <div class="card">
+            <span class="label">Casemiro Scenario</span>
+            <span class="value">64.47</span>
+          </div>
+        </div>
+
+        <h2>What The Project Is Really About</h2>
+        <p>On the surface, this is a football analytics project. Underneath, it is a decision-quality project about resource allocation, organizational diagnosis, and the trade-off between visible solutions and structurally useful ones.</p>
+        <p>The main strategic claim is simple: United may have solved the wrong problem in <code>2021</code>. Ronaldo addressed star power and finishing. The team may have needed control, midfield protection, and defensive stability more urgently.</p>
+
+        <div class="quote"><strong>Core thesis:</strong> the project does not argue that Ronaldo alone caused the decline. It argues that United’s transfer decision may have been misaligned with the team’s deeper structural weakness.</div>
+
+        <h2>Why This Question Matters</h2>
+        <p>This is interesting because the Ronaldo transfer is famous, emotional, and easy to narrate lazily. That makes it a great case study for disciplined analysis. Rather than asking, “Was Ronaldo good or bad?”, the project asks a better question: “Did United allocate an elite resource to the capability they most needed?”</p>
+
+        <h2>What Data The Project Uses</h2>
+        <p>The project uses real public match-level Premier League data for three windows:</p>
+        <ul>
+          <li><code>2020/21</code> full season as the baseline</li>
+          <li><code>2021/22</code> up to Ole Gunnar Solskjaer’s exit</li>
+          <li><code>2021/22</code> full season</li>
+        </ul>
+        <p>Main variables include <code>date</code>, <code>opponent</code>, <code>venue</code>, <code>goals_for</code>, <code>goals_against</code>, <code>xG</code>, <code>xGA</code>, <code>shots_for</code>, <code>shots_against</code>, result, and points.</p>
+
+        <div class="panel">
+          <h3>Why Match-Level Data?</h3>
+          <p>Because it is practical, interpretable, and honest. It lets us study how the team profile changed without pretending we have player-tracking or event-level tactical certainty. The project deliberately chooses clarity over fake sophistication.</p>
+        </div>
+
+        <h2>How The Project Works End To End</h2>
+        <ul>
+          <li>Raw match CSV files are loaded from <code>data/raw/</code>.</li>
+          <li>The data is cleaned and standardized into a consistent schema.</li>
+          <li>Features are engineered, such as rolling xG difference, cumulative points, and expected-points proxies.</li>
+          <li>The project compares the <code>2020/21</code> baseline against the <code>2021/22</code> decline.</li>
+          <li>A counterfactual team profile is created where Ronaldo is replaced by a control-oriented midfielder.</li>
+          <li>A Poisson-based goal simulation generates match and season outcome distributions.</li>
+          <li>Charts, tables, and article-ready outputs are exported.</li>
+        </ul>
+
+        <h2>What The Descriptive Analysis Shows</h2>
+        <p>Before modeling anything, the project checks whether United really got worse. The answer is yes.</p>
+        <ul>
+          <li><code>2020/21</code>: <code>74</code> points, <code>1.95</code> points per match, positive xG difference</li>
+          <li><code>2021/22</code> to Ole exit: <code>17</code> points, <code>1.42</code> points per match, negative xG difference</li>
+          <li><code>2021/22</code> full season: <code>58</code> points, <code>1.53</code> points per match, almost flat xG difference</li>
+        </ul>
+        <p>This matters because a good counterfactual should respond to a real observed problem, not invent one.</p>
+
+        <h2>What “Control” Means In This Project</h2>
+        <p>“Control” is not directly observed. It is proxied through team-level indicators such as lower <code>xGA</code>, fewer shots conceded, improved xG difference, and a more stable expected-points profile. That means the project does not claim to measure tactical control perfectly. It uses transparent, reasonable proxies for it.</p>
+
+        <h2>What The Counterfactual Changes</h2>
+        <p>The counterfactual assumes that without Ronaldo, United lose a small amount of attacking edge but gain defensive structure from a midfielder who improves control and protection.</p>
+
+        <div class="two-col">
+          <div class="panel">
+            <h3>Main Generic CDM Assumptions</h3>
+            <ul>
+              <li><code>attack_xg_multiplier = 0.94</code></li>
+              <li><code>control_xg_bonus = 0.05</code></li>
+              <li><code>defensive_xga_multiplier = 0.86</code></li>
+              <li><code>defensive_shots_against_multiplier = 0.90</code></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Casemiro Scenario Assumptions</h3>
+            <ul>
+              <li><code>casemiro_defensive_xga_multiplier = 0.82</code></li>
+              <li><code>casemiro_control_xg_bonus = 0.07</code></li>
+              <li>Modeled as a stronger, named upper-bound case</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>The generic CDM is the main case because it is conceptually cleaner. Casemiro is secondary because he is a real player United later signed, which makes him useful but also more hindsight-sensitive.</p>
+        <p>For interview or article purposes, it helps to describe the generic CDM as a capability type that really existed in the market in summer 2021. Manuel Locatelli and Boubakary Soumare are useful reality anchors for that discussion, even though the simulation itself does not model one specific player.</p>
+        <p>The assumption values are best understood as scenario bands rather than discovered truths. The base case represents a strong first-team solution. The mild and strong cases then test whether the conclusion changes materially when that assumed midfield impact is softened or intensified.</p>
+
+        <h2>The Core Theory Behind The Model</h2>
+        <h3>Counterfactual Analysis</h3>
+        <p>A counterfactual asks what might have happened if one key choice had changed. It does not prove alternate history. It builds a disciplined scenario under explicit assumptions.</p>
+
+        <h3>Causality vs Scenario Modeling</h3>
+        <p>This project is not a causal identification study. It does not isolate true causal effect with experimental rigor. It is a scenario model designed to test whether a different squad-building logic produces meaningfully different outcomes.</p>
+
+        <h3>Expected Goals</h3>
+        <p><code>xG</code> estimates the probability that a shot becomes a goal based on shot quality. It is useful because goals alone are noisy. <code>xGA</code> does the same for chances conceded.</p>
+
+        <h3>Process vs Outcome</h3>
+        <p>This is one of the most important ideas in the project. Outcomes are points and results. Process is xG, xGA, chance quality, shot profile, and expected points. A team can have decent short-term outcomes with a weak underlying process, or vice versa. The project tries to judge process, not just results.</p>
+
+        <h3>Poisson Distribution</h3>
+        <p>The simulation uses a Poisson model because football goals are low-frequency count events. A Poisson distribution is a simple and interpretable way to model counts over a fixed interval, which makes it a common baseline in football analytics.</p>
+
+        <h3>Expected Points</h3>
+        <p>Expected points is a model-based estimate of how many points a team “deserved” based on its underlying chance profile. It helps separate sustainable process from noisy outcomes.</p>
+
+        <h3>Distribution, Not Certainty</h3>
+        <p>The model does not return one magic answer. It returns a distribution of plausible season outcomes. That is why the project reports the mean, median, and percentile ranges rather than pretending the future is deterministic.</p>
+
+        <h2>Main Results</h2>
+        <div class="two-col">
+          <div class="panel">
+            <h3>To Ole’s Exit</h3>
+            <ul>
+              <li>Actual: <code>17.0</code></li>
+              <li>Generic CDM: <code>18.13</code></li>
+              <li>Casemiro-style: <code>19.21</code></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Full Season</h3>
+            <ul>
+              <li>Actual: <code>58.0</code></li>
+              <li>Generic CDM: <code>61.16</code></li>
+              <li>Casemiro-style: <code>64.47</code></li>
+            </ul>
+          </div>
+        </div>
+
+        <p>The key interpretation is that a better midfield fit likely helps, but does not transform the season completely. That supports a nuanced conclusion: United probably misdiagnosed the problem, but the club’s issues were broader than one transfer.</p>
+
+        <h2>Robustness Check</h2>
+        <p>To make sure the conclusion was not hanging on one convenient parameter set, the project also runs a mild, base, and strong generic-CDM sensitivity analysis.</p>
+        <ul>
+          <li>Mild: <code>58.45</code> points</li>
+          <li>Base: <code>61.16</code> points</li>
+          <li>Strong: <code>64.56</code> points</li>
+        </ul>
+        <p>That means the exact uplift is assumption-sensitive, but the directional conclusion survives: a more control-oriented midfield profile consistently looks more useful than the observed squad build. That is a stronger position than simply saying “my preferred multiplier produced the answer I wanted.”</p>
+
+        <h2>What The Project Does And Does Not Claim</h2>
+        <div class="two-col">
+          <div class="panel">
+            <h3>Safe Claims</h3>
+            <ul>
+              <li>United’s underlying profile worsened from <code>2020/21</code> to <code>2021/22</code>.</li>
+              <li>A control-oriented midfielder likely improves the team in the model.</li>
+              <li>The generic case suggests modest improvement.</li>
+              <li>The Casemiro case suggests a larger upside under stronger fit.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Claims To Avoid</h3>
+            <ul>
+              <li>Ronaldo caused the collapse.</li>
+              <li>Casemiro definitely would have delivered 64 or 65 points.</li>
+              <li>One CDM would have fixed the club.</li>
+              <li>The model proves alternate history.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2>Major Limitations</h2>
+        <ul>
+          <li>The model is team-level, not player-level.</li>
+          <li>It is not a causal proof.</li>
+          <li>It translates midfield impact through simplified team-profile changes.</li>
+          <li>It does not capture dressing-room dynamics, wages, injuries, or coaching quality well.</li>
+          <li>Poisson is useful, but still a simplification of real football scoring dynamics.</li>
+          <li>The Casemiro case is partly hindsight-driven and should stay secondary.</li>
+        </ul>
+
+        <div class="quote"><strong>Best one-line limitation:</strong> this is a transparent counterfactual scenario model, not a causal proof of alternate history.</div>
+
+        <h2>How To Answer Interviewer Questions</h2>
+
+        <div class="qa">
+          <strong>Why did you choose this project?</strong>
+          <p>I wanted to study a famous football decision through a strategy lens. The Ronaldo transfer is emotionally obvious, but analytically interesting because it raises a resource-allocation question about whether United solved the capability they most needed to solve.</p>
+        </div>
+
+        <div class="qa">
+          <strong>Why not just write an opinion piece?</strong>
+          <p>Because I wanted to move from narrative to evidence. The project uses data to test whether the squad-building logic made sense instead of simply reacting to the outcome.</p>
+        </div>
+
+        <div class="qa">
+          <strong>Why use xG instead of just goals?</strong>
+          <p>Goals are noisy and heavily affected by finishing variance. xG helps evaluate the quality of the process that produced the results.</p>
+        </div>
+
+        <div class="qa">
+          <strong>Why use a Poisson model?</strong>
+          <p>Football goals are low-frequency count events, and Poisson models are a common, interpretable baseline for modeling counts over fixed intervals.</p>
+        </div>
+
+        <div class="qa">
+          <strong>Why not use a more advanced machine learning model?</strong>
+          <p>Interpretability mattered more than complexity. I wanted a model whose assumptions I could explain, defend, and stress-test clearly.</p>
+        </div>
+
+        <div class="qa">
+          <strong>Why is the generic CDM scenario more important than Casemiro?</strong>
+          <p>The generic CDM is the cleaner analytical case because it tests a capability gap rather than overfitting to one player. Casemiro is useful as an illustrative upper-bound scenario because United later signed him.</p>
+        </div>
+
+        <div class="qa">
+          <strong>What is the biggest insight?</strong>
+          <p>That the team’s main problem may not have been lack of star quality. It was likely lack of balance, midfield control, and defensive protection.</p>
+        </div>
+
+        <div class="qa">
+          <strong>What surprised you most?</strong>
+          <p>That the generic CDM scenario helps, but only moderately. That actually made the conclusion more credible, because it suggests the club’s issues were broader than one transfer decision.</p>
+        </div>
+
+        <div class="qa">
+          <strong>If an interviewer says, “Isn’t this just football?”</strong>
+          <p>The topic is football, but the underlying problem is classic strategy: how organizations diagnose root causes, allocate scarce resources, and choose between visible and structurally useful solutions.</p>
+        </div>
+
+        <h2>How To Explain The Whole Project Quickly</h2>
+        <div class="panel">
+          <h3>30-Second Version</h3>
+          <p>I built a Python sports analytics project testing whether Manchester United solved the wrong problem in <code>2021</code>. Using real match-level data, I compared the team’s <code>2020/21</code> and <code>2021/22</code> profiles, then simulated a counterfactual where Ronaldo was replaced by a control-oriented defensive midfielder. The model suggests United likely improve, but only moderately, which supports the broader conclusion that the club was addressing symptoms more than structural weakness.</p>
+        </div>
+
+        <div class="panel">
+          <h3>2-Minute Version</h3>
+          <p>I framed the Ronaldo transfer as a strategy question rather than a football argument. United signed an elite attacker, but the underlying team profile suggested the bigger weakness was midfield control and defensive stability. I built a clean Python pipeline around real public match-level data, engineered rolling and summary metrics, and first established that the team had clearly deteriorated from <code>2020/21</code> to <code>2021/22</code>. Then I built a transparent counterfactual scenario where attacking output falls slightly without Ronaldo, but defensive stability improves with a strong defensive midfielder. I simulated outcomes using a Poisson model and compared actual versus counterfactual points. The generic midfield scenario improved the full season from <code>58</code> to about <code>61</code> points, while a stronger Casemiro-style case reached about <code>64.5</code>. My conclusion was not that Ronaldo caused the collapse, but that United may have invested in the most visible solution rather than the most structurally useful one.</p>
+        </div>
+
+        <div class="footer">
+          This explainer is designed as a study guide for interviews, writing prep, and project walkthroughs. Pair it with the repo’s <code>README.md</code>, <code>docs/methodology.md</code>, and the exported tables in <code>outputs/tables/</code>.
+        </div>
+      </div>
+    </article>
+  </div>
+</body>
+</html>

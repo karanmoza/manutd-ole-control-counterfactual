@@ -1,0 +1,4 @@
+scenario,points,label
+actual_2021_22_points,58.0,Observed Manchester United league points
+counterfactual_cdm_mean,61.16,Mean simulated points with a CDM profile instead of Ronaldo
+casemiro_counterfactual_mean,64.47,Mean simulated points with a Casemiro-style signing instead of Ronaldo

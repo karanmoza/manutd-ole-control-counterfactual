@@ -1,0 +1,13 @@
+date,opponent,venue,goals_for,goals_against,xg,xga,shots_for,shots_against,competition,manager,notes
+2021-08-14,Leeds,H,5,1,1.642,0.568,16,10,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-08-22,Southampton,A,1,1,2.262,0.588,16,8,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-08-29,Wolverhampton Wanderers,A,1,0,0.944,1.796,10,15,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-09-11,Newcastle United,H,4,1,2.773,0.622,21,12,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-09-19,West Ham,A,2,1,1.895,1.667,17,13,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-09-25,Aston Villa,H,0,1,1.925,1.572,28,7,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-10-02,Everton,H,1,1,1.05,1.322,13,12,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-10-16,Leicester,A,2,4,1.025,2.966,18,22,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-10-24,Liverpool,H,0,5,1.356,4.048,12,19,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-10-30,Tottenham,A,3,0,1.386,1.158,10,9,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-11-06,Manchester City,H,0,2,0.76,2.042,6,16,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-11-20,Watford,A,1,4,1.668,2.734,9,20,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat

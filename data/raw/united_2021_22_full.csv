@@ -1,0 +1,39 @@
+date,opponent,venue,goals_for,goals_against,xg,xga,shots_for,shots_against,competition,manager,notes
+2021-08-14,Leeds,H,5,1,1.642,0.568,16,10,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-08-22,Southampton,A,1,1,2.262,0.588,16,8,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-08-29,Wolverhampton Wanderers,A,1,0,0.944,1.796,10,15,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-09-11,Newcastle United,H,4,1,2.773,0.622,21,12,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-09-19,West Ham,A,2,1,1.895,1.667,17,13,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-09-25,Aston Villa,H,0,1,1.925,1.572,28,7,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-10-02,Everton,H,1,1,1.05,1.322,13,12,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-10-16,Leicester,A,2,4,1.025,2.966,18,22,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-10-24,Liverpool,H,0,5,1.356,4.048,12,19,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-10-30,Tottenham,A,3,0,1.386,1.158,10,9,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-11-06,Manchester City,H,0,2,0.76,2.042,6,16,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-11-20,Watford,A,1,4,1.668,2.734,9,20,Premier League,Ole Gunnar Solskjaer,Real data fetched from Understat
+2021-11-28,Chelsea,A,1,1,0.563,2.345,3,24,Premier League,Michael Carrick,Real data fetched from Understat
+2021-12-02,Arsenal,H,3,2,1.856,1.166,14,17,Premier League,Michael Carrick,Real data fetched from Understat
+2021-12-05,Crystal Palace,H,1,0,0.87,0.521,16,8,Premier League,Ralf Rangnick,Real data fetched from Understat
+2021-12-11,Norwich,A,1,0,2.098,0.986,13,11,Premier League,Ralf Rangnick,Real data fetched from Understat
+2021-12-27,Newcastle United,A,1,1,1.756,1.266,13,13,Premier League,Ralf Rangnick,Real data fetched from Understat
+2021-12-30,Burnley,H,3,1,1.808,0.872,18,11,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-01-03,Wolverhampton Wanderers,H,0,1,0.769,0.841,9,19,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-01-15,Aston Villa,A,2,2,1.354,1.828,13,13,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-01-19,Brentford,A,3,1,2.06,2.081,13,18,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-01-22,West Ham,H,1,0,1.759,0.238,18,6,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-02-08,Burnley,A,1,1,1.834,0.773,22,9,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-02-12,Southampton,H,1,1,2.992,0.677,12,13,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-02-15,Brighton,H,2,0,2.749,1.262,19,10,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-02-20,Leeds,A,4,2,2.61,1.745,15,16,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-02-26,Watford,H,0,0,2.415,0.437,22,10,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-03-06,Manchester City,A,1,4,0.362,2.744,5,24,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-03-12,Tottenham,H,3,2,1.018,1.624,11,10,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-04-02,Leicester,H,1,1,0.902,1.076,11,11,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-04-09,Everton,A,0,1,0.762,0.357,12,7,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-04-16,Norwich,H,3,2,1.667,1.798,20,15,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-04-19,Liverpool,A,0,4,0.11,2.26,2,14,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-04-23,Arsenal,A,1,3,2.042,2.542,14,14,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-04-28,Chelsea,H,1,1,0.618,2.469,6,21,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-05-02,Brentford,H,3,0,1.841,0.681,9,12,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-05-07,Brighton,A,0,4,0.931,2.826,15,17,Premier League,Ralf Rangnick,Real data fetched from Understat
+2022-05-22,Crystal Palace,A,0,1,0.782,0.355,10,6,Premier League,Ralf Rangnick,Real data fetched from Understat

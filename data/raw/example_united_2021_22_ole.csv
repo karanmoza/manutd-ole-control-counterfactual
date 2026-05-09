@@ -1,0 +1,14 @@
+date,opponent,venue,goals_for,goals_against,xg,xga,shots_for,shots_against,competition,manager,notes
+2021-08-14,Leeds United,H,5,1,1.9,0.6,16,10,Premier League,Ole Gunnar Solskjaer,Pre-Ronaldo
+2021-08-22,Southampton,A,1,1,1.5,1.1,15,13,Premier League,Ole Gunnar Solskjaer,Pre-Ronaldo
+2021-08-29,Wolverhampton Wanderers,A,1,0,0.9,1.7,10,19,Premier League,Ole Gunnar Solskjaer,Pre-Ronaldo
+2021-09-11,Newcastle United,H,4,1,2.3,1.2,21,12,Premier League,Ole Gunnar Solskjaer,Post-Ronaldo
+2021-09-19,West Ham United,A,2,1,1.4,1.3,13,14,Premier League,Ole Gunnar Solskjaer,Post-Ronaldo
+2021-09-25,Aston Villa,H,0,1,1.3,0.9,28,7,Premier League,Ole Gunnar Solskjaer,Post-Ronaldo
+2021-10-02,Everton,H,1,1,1.6,1.5,13,12,Premier League,Ole Gunnar Solskjaer,Post-Ronaldo
+2021-10-16,Leicester City,A,2,4,1.2,2.5,15,18,Premier League,Ole Gunnar Solskjaer,Post-Ronaldo
+2021-10-24,Liverpool,H,0,5,0.8,3.1,12,19,Premier League,Ole Gunnar Solskjaer,Post-Ronaldo
+2021-10-30,Tottenham Hotspur,A,3,0,1.7,0.7,10,9,Premier League,Ole Gunnar Solskjaer,Post-Ronaldo
+2021-11-06,Manchester City,H,0,2,0.6,2.0,5,16,Premier League,Ole Gunnar Solskjaer,Post-Ronaldo
+2021-11-20,Watford,A,1,4,1.4,2.6,9,20,Premier League,Ole Gunnar Solskjaer,Post-Ronaldo
+

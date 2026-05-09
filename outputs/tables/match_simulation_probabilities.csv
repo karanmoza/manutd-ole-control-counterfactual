@@ -1,0 +1,37 @@
+date,opponent,scenario,win_probability,draw_probability,loss_probability,expected_points
+2021-08-14,Leeds,actual_profile,0.6342,0.2407,0.1251,2.1433
+2021-08-14,Leeds,counterfactual_cdm,0.6916,0.2282,0.0802,2.303
+2021-08-14,Leeds,casemiro_counterfactual,0.7101,0.2237,0.0662,2.354
+2021-08-22,Southampton,actual_profile,0.7612,0.1601,0.0787,2.4437
+2021-08-22,Southampton,counterfactual_cdm,0.7864,0.1563,0.0573,2.5155
+2021-08-22,Southampton,casemiro_counterfactual,0.7999,0.1535,0.0466,2.5532
+2021-08-29,Wolverhampton Wanderers,actual_profile,0.2004,0.2303,0.5693,0.8315
+2021-08-29,Wolverhampton Wanderers,counterfactual_cdm,0.2631,0.2794,0.4575,1.0687
+2021-08-29,Wolverhampton Wanderers,casemiro_counterfactual,0.2923,0.2807,0.427,1.1576
+2021-09-11,Newcastle United,actual_profile,0.8256,0.1181,0.0563,2.5949
+2021-09-11,Newcastle United,counterfactual_cdm,0.8481,0.1152,0.0367,2.6595
+2021-09-11,Newcastle United,casemiro_counterfactual,0.8661,0.1048,0.0291,2.7031
+2021-09-19,West Ham,actual_profile,0.4384,0.2183,0.3433,1.5335
+2021-09-19,West Ham,counterfactual_cdm,0.508,0.2312,0.2608,1.7552
+2021-09-19,West Ham,casemiro_counterfactual,0.5436,0.2259,0.2305,1.8567
+2021-09-25,Aston Villa,actual_profile,0.454,0.228,0.318,1.59
+2021-09-25,Aston Villa,counterfactual_cdm,0.5165,0.228,0.2555,1.7775
+2021-09-25,Aston Villa,casemiro_counterfactual,0.5504,0.2161,0.2335,1.8673
+2021-10-02,Everton,actual_profile,0.2971,0.2758,0.4271,1.1671
+2021-10-02,Everton,counterfactual_cdm,0.3619,0.3079,0.3302,1.3936
+2021-10-02,Everton,casemiro_counterfactual,0.3886,0.315,0.2964,1.4808
+2021-10-16,Leicester,actual_profile,0.0996,0.1328,0.7676,0.4316
+2021-10-16,Leicester,counterfactual_cdm,0.1527,0.187,0.6603,0.6451
+2021-10-16,Leicester,casemiro_counterfactual,0.1782,0.2065,0.6153,0.7411
+2021-10-24,Liverpool,actual_profile,0.0782,0.0849,0.8369,0.3195
+2021-10-24,Liverpool,counterfactual_cdm,0.1164,0.1336,0.75,0.4828
+2021-10-24,Liverpool,casemiro_counterfactual,0.1382,0.1499,0.7119,0.5645
+2021-10-30,Tottenham,actual_profile,0.4205,0.2608,0.3187,1.5223
+2021-10-30,Tottenham,counterfactual_cdm,0.4751,0.2878,0.2371,1.7131
+2021-10-30,Tottenham,casemiro_counterfactual,0.5013,0.2814,0.2173,1.7853
+2021-11-06,Manchester City,actual_profile,0.1302,0.1962,0.6736,0.5868
+2021-11-06,Manchester City,counterfactual_cdm,0.1757,0.2564,0.5679,0.7835
+2021-11-06,Manchester City,casemiro_counterfactual,0.2021,0.2643,0.5336,0.8706
+2021-11-20,Watford,actual_profile,0.2222,0.1759,0.6019,0.8425
+2021-11-20,Watford,counterfactual_cdm,0.3045,0.2042,0.4913,1.1177
+2021-11-20,Watford,casemiro_counterfactual,0.3347,0.2166,0.4487,1.2207

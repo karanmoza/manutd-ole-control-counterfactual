@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manchester United 2021: Solving the Wrong Problem</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    :root {
+      --ink: #111827;
+      --muted: #5b6472;
+      --faint: #eef1f5;
+      --panel: #f7f8fa;
+      --line: #d9dee6;
+      --red: #9d1f2d;
+      --navy: #162131;
+      --soft-red: #f4e7e9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.28;
+    }
+
+    body {
+      width: 210mm;
+      min-height: 297mm;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      padding: 12.5mm 14mm 12mm;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .top-rule {
+      height: 4px;
+      width: 100%;
+      background: linear-gradient(90deg, var(--red), var(--navy));
+      margin-bottom: 8mm;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8mm;
+      align-items: start;
+      padding-bottom: 5mm;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      margin: 0 0 2.5mm;
+      color: var(--navy);
+      font-size: 23pt;
+      line-height: 1.03;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 9.4pt;
+      max-width: 122mm;
+    }
+
+    .label {
+      justify-self: end;
+      max-width: 42mm;
+      padding: 3mm 3.5mm;
+      border: 1px solid #e5cbd0;
+      background: var(--soft-red);
+      color: var(--red);
+      font-size: 7.4pt;
+      line-height: 1.35;
+      text-transform: uppercase;
+      font-weight: 800;
+      text-align: right;
+      letter-spacing: 0.04em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 5mm;
+      margin-top: 5mm;
+    }
+
+    .section {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 3.6mm 4mm;
+      min-height: 0;
+    }
+
+    .section.white {
+      background: #ffffff;
+    }
+
+    .span {
+      grid-column: 1 / -1;
+    }
+
+    h2 {
+      margin: 0 0 2.2mm;
+      color: var(--red);
+      font-size: 7.6pt;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 900;
+    }
+
+    p {
+      margin: 0 0 2mm;
+      color: var(--ink);
+      font-size: 8.2pt;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: var(--navy);
+      font-weight: 850;
+    }
+
+    .diagnosis {
+      font-size: 8.5pt;
+    }
+
+    .key-line {
+      margin-top: 2.4mm;
+      padding-left: 3mm;
+      border-left: 3px solid var(--red);
+      color: var(--navy);
+      font-size: 9pt;
+      font-weight: 800;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.2mm;
+      margin-top: 2mm;
+    }
+
+    .metric {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      padding: 2.2mm 2.3mm;
+    }
+
+    .metric-name {
+      display: block;
+      min-height: 7mm;
+      color: var(--muted);
+      font-size: 6.4pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .metric-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5mm;
+      margin-top: 1.6mm;
+    }
+
+    .season {
+      color: var(--muted);
+      font-size: 5.8pt;
+      font-weight: 700;
+    }
+
+    .value {
+      display: block;
+      color: var(--navy);
+      font-size: 11pt;
+      font-weight: 900;
+      line-height: 1.05;
+    }
+
+    .value.red {
+      color: var(--red);
+    }
+
+    .tiny-note {
+      color: var(--muted);
+      font-size: 7pt;
+    }
+
+    .chart {
+      display: grid;
+      gap: 2mm;
+      margin: 2.5mm 0 1.5mm;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 36mm 1fr 11mm;
+      gap: 2.2mm;
+      align-items: center;
+      font-size: 6.8pt;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .track {
+      height: 6.5mm;
+      background: var(--faint);
+      border: 1px solid #dfe4ec;
+      position: relative;
+    }
+
+    .bar {
+      height: 100%;
+      background: var(--navy);
+    }
+
+    .bar.red {
+      background: var(--red);
+    }
+
+    .bar.mid {
+      background: #44546a;
+    }
+
+    .points {
+      text-align: right;
+      color: var(--navy);
+      font-size: 8pt;
+      font-weight: 900;
+    }
+
+    .method-list,
+    .profile-list {
+      margin: 0;
+      padding-left: 4.2mm;
+      color: var(--ink);
+      font-size: 7.8pt;
+    }
+
+    .method-list li,
+    .profile-list li {
+      margin-bottom: 1.3mm;
+    }
+
+    .profile-list {
+      columns: 2;
+      column-gap: 6mm;
+    }
+
+    .takeaway {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5mm;
+      align-items: center;
+      background: var(--navy);
+      color: #ffffff;
+      border: 0;
+      padding: 4.2mm 4.8mm;
+    }
+
+    .takeaway h2,
+    .takeaway p,
+    .takeaway strong {
+      color: #ffffff;
+    }
+
+    .takeaway h2 {
+      margin-bottom: 2mm;
+      opacity: 0.78;
+    }
+
+    .takeaway p {
+      font-size: 8.4pt;
+    }
+
+    .final-line {
+      border-left: 3px solid var(--red);
+      padding-left: 3mm;
+      font-size: 11pt;
+      line-height: 1.12;
+      font-weight: 900;
+    }
+
+    footer {
+      margin-top: 4mm;
+      color: var(--muted);
+      font-size: 6.7pt;
+      text-align: right;
+    }
+
+    @media screen {
+      body {
+        margin: 0 auto;
+        background: #e6e9ee;
+      }
+
+      .page {
+        box-shadow: 0 16px 48px rgba(17, 24, 39, 0.18);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="top-rule"></div>
+
+    <header>
+      <div>
+        <h1>Manchester United 2021: Solving the Wrong Problem</h1>
+        <p class="subtitle">A data-led counterfactual on output vs control in squad-building decisions</p>
+      </div>
+      <div class="label">Application memo<br>Football data analysis<br>Karan Moza</div>
+    </header>
+
+    <section class="grid">
+      <article class="section white span">
+        <h2>1. The Diagnosis</h2>
+        <p class="diagnosis">In 2021, Manchester United added Cristiano Ronaldo to increase attacking output. But the underlying data suggests the team's more urgent issue was not chance creation. It was control: midfield stability, defensive transitions, and the ability to protect the back line.</p>
+        <p class="key-line">United did not buy the wrong player as much as they bought the wrong solution. United added output when they needed control.</p>
+      </article>
+
+      <article class="section span">
+        <h2>2. Evidence Snapshot</h2>
+        <div class="metrics" aria-label="2020/21 and 2021/22 evidence snapshot">
+          <div class="metric">
+            <span class="metric-name">Points</span>
+            <div class="metric-values">
+              <div><span class="season">2020/21</span><span class="value">74</span></div>
+              <div><span class="season">2021/22</span><span class="value red">58</span></div>
+            </div>
+          </div>
+          <div class="metric">
+            <span class="metric-name">xG diff / match</span>
+            <div class="metric-values">
+              <div><span class="season">2020/21</span><span class="value">+0.56</span></div>
+              <div><span class="season">2021/22</span><span class="value red">+0.01</span></div>
+            </div>
+          </div>
+          <div class="metric">
+            <span class="metric-name">xGA / match</span>
+            <div class="metric-values">
+              <div><span class="season">2020/21</span><span class="value">1.10</span></div>
+              <div><span class="season">2021/22</span><span class="value red">1.50</span></div>
+            </div>
+          </div>
+          <div class="metric">
+            <span class="metric-name">Shots against / match</span>
+            <div class="metric-values">
+              <div><span class="season">2020/21</span><span class="value">11.37</span></div>
+              <div><span class="season">2021/22</span><span class="value red">13.47</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="tiny-note">The decline was not only a table-position story: United lost most of their underlying xG cushion while conceding more chance quality and shot volume.</p>
+      </article>
+
+      <article class="section white">
+        <h2>3. Model Approach</h2>
+        <ul class="method-list">
+          <li>Public match-level Premier League data.</li>
+          <li>Variables: goals, xG, xGA, shots for, shots against.</li>
+          <li>Poisson goal simulation estimated win/draw/loss probabilities under alternative team profiles.</li>
+          <li>Counterfactual: no Ronaldo, but a control-oriented midfielder improves defensive stability and shot suppression.</li>
+        </ul>
+        <p class="key-line">This is a transparent scenario model, not a causal proof.</p>
+      </article>
+
+      <article class="section">
+        <h2>4. Counterfactual Result</h2>
+        <div class="chart" aria-label="2021/22 Points Scenario">
+          <div class="bar-row">
+            <span>Actual 2021/22</span>
+            <div class="track"><div class="bar red" style="width: 89.9%;"></div></div>
+            <span class="points">58.0</span>
+          </div>
+          <div class="bar-row">
+            <span>Generic CDM</span>
+            <div class="track"><div class="bar mid" style="width: 94.9%;"></div></div>
+            <span class="points">61.2</span>
+          </div>
+          <div class="bar-row">
+            <span>Strong fit / Casemiro-style</span>
+            <div class="track"><div class="bar" style="width: 100%;"></div></div>
+            <span class="points">64.5</span>
+          </div>
+        </div>
+        <p class="tiny-note">2021/22 Points Scenario. Control improves the expected points profile, but does not transform the team.</p>
+        <p><strong>The team tried to raise its ceiling, but failed to protect its floor.</strong></p>
+      </article>
+
+      <article class="section span">
+        <h2>5. Player Profile / Recruitment Implication</h2>
+        <p>A control-oriented midfielder should:</p>
+        <ul class="profile-list">
+          <li>receive under pressure</li>
+          <li>progress play safely</li>
+          <li>reduce central transition exposure</li>
+          <li>protect rest defence</li>
+          <li>improve territorial stability</li>
+          <li>reduce the number of defensive duels the back line has to face</li>
+        </ul>
+        <p class="key-line">The next signing should not only win duels. It should prevent some of them from happening.</p>
+      </article>
+
+      <article class="section white span">
+        <h2>Analytical Caution</h2>
+        <p>The model does not suggest one transfer fixes United. It suggests a control-oriented squad build plausibly improves the team's floor. The conclusion is directional: the uplift depends on scenario assumptions, but the diagnosis is stable across mild/base/strong cases.</p>
+      </article>
+
+      <article class="section takeaway span">
+        <div>
+          <h2>6. Decision Takeaway</h2>
+          <p>Data should not just measure performance after the fact. It should help define the problem before capital is deployed.</p>
+        </div>
+        <p class="final-line">Before buying output, diagnose the constraint.</p>
+      </article>
+    </section>
+
+    <footer>Source: OGS counterfactual project outputs and sample_article.html; public match-level Premier League data.</footer>
+  </main>
+</body>
+</html>

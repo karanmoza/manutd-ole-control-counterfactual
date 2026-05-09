@@ -1,0 +1,4 @@
+window,matches,points,points_per_match,goals_for_per_match,goals_against_per_match,xg_per_match,xga_per_match,xg_diff_per_match,shots_for_per_match,shots_against_per_match,expected_points_total
+2020/21 baseline,38,74,1.95,1.92,1.16,1.66,1.1,0.56,13.87,11.37,64.18
+2021/22 to Ole exit,12,17,1.42,1.67,1.75,1.56,1.76,-0.2,14.67,13.58,15.98
+2021/22 full season,38,58,1.53,1.5,1.5,1.51,1.5,0.01,13.45,13.47,54.51

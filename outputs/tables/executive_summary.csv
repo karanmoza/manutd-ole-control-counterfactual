@@ -1,0 +1,8 @@
+question,actual_observed_or_profile,counterfactual_cdm_mean,difference
+2020/21 baseline points per match,1.95,,
+2021/22 points per match to Ole exit,1.42,,-0.53
+Points to Ole exit,17.0,18.13,1.13
+Points to Ole exit (Casemiro scenario),17.0,19.21,2.21
+Points over full 2021/22 season,58.0,61.16,3.16
+Points over full 2021/22 season (Casemiro scenario),58.0,64.47,6.47
+Sensitivity range for generic CDM full-season uplift,58.0,58.45 to 64.56,0.45 to 6.56

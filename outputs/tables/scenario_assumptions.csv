@@ -1,0 +1,8 @@
+assumption,value,interpretation
+attack_xg_multiplier,0.94,Slight reduction in attacking output without Ronaldo
+control_xg_bonus,0.05,Small control-driven attack compensation from better midfield balance
+defensive_xga_multiplier,0.86,Improved defensive stability with a strong defensive midfielder
+defensive_shots_against_multiplier,0.9,Fewer shots conceded under the counterfactual build
+shot_suppression_xga_bonus,0.012,Extra xGA reduction tied to shot suppression
+casemiro_defensive_xga_multiplier,0.82,Stronger defensive improvement for the Casemiro-specific scenario
+casemiro_control_xg_bonus,0.07,Slightly larger control bonus for a named elite ball-winning midfielder
