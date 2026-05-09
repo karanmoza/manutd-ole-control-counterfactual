@@ -35,11 +35,7 @@ def run_analysis(config: ProjectConfig) -> dict[str, pd.DataFrame]:
     """Run the full analytics pipeline and save outputs."""
 
     ensure_directories(
-        [
-            config.paths.data_processed,
-            config.paths.outputs_figures,
-            config.paths.outputs_tables,
-        ]
+        [config.paths.data_processed, config.paths.outputs_figures, config.paths.outputs_tables,]
     )
 
     raw_frames = load_match_data(config)
@@ -178,8 +174,7 @@ def run_analysis(config: ProjectConfig) -> dict[str, pd.DataFrame]:
                 "scenario": "counterfactual_cdm_mean",
                 "points": round(
                     full_scenario_summary.loc[
-                        full_scenario_summary["scenario"] == "counterfactual_cdm",
-                        "mean_points",
+                        full_scenario_summary["scenario"] == "counterfactual_cdm", "mean_points",
                     ].iloc[0],
                     2,
                 ),
@@ -224,8 +219,7 @@ def run_analysis(config: ProjectConfig) -> dict[str, pd.DataFrame]:
         )
         mean_points = float(
             sensitivity_summary.loc[
-                sensitivity_summary["scenario"] == "counterfactual_cdm",
-                "mean_points",
+                sensitivity_summary["scenario"] == "counterfactual_cdm", "mean_points",
             ].iloc[0]
         )
         sensitivity_rows.append(
@@ -255,22 +249,22 @@ def run_analysis(config: ProjectConfig) -> dict[str, pd.DataFrame]:
                 "question": "2021/22 points per match to Ole exit",
                 "actual_observed_or_profile": round(float(ole_2021_22["points"].mean()), 2),
                 "counterfactual_cdm_mean": "",
-                "difference": round(float(ole_2021_22["points"].mean() - baseline["points"].mean()), 2),
+                "difference": round(
+                    float(ole_2021_22["points"].mean() - baseline["points"].mean()), 2
+                ),
             },
             {
                 "question": "Points to Ole exit",
                 "actual_observed_or_profile": round(float(ole_2021_22["points"].sum()), 2),
                 "counterfactual_cdm_mean": round(
                     scenario_summary.loc[
-                        scenario_summary["scenario"] == "counterfactual_cdm",
-                        "mean_points",
+                        scenario_summary["scenario"] == "counterfactual_cdm", "mean_points",
                     ].iloc[0],
                     2,
                 ),
                 "difference": round(
                     scenario_summary.loc[
-                        scenario_summary["scenario"] == "counterfactual_cdm",
-                        "mean_points",
+                        scenario_summary["scenario"] == "counterfactual_cdm", "mean_points",
                     ].iloc[0]
                     - float(ole_2021_22["points"].sum()),
                     2,
@@ -281,15 +275,13 @@ def run_analysis(config: ProjectConfig) -> dict[str, pd.DataFrame]:
                 "actual_observed_or_profile": round(float(ole_2021_22["points"].sum()), 2),
                 "counterfactual_cdm_mean": round(
                     scenario_summary.loc[
-                        scenario_summary["scenario"] == "casemiro_counterfactual",
-                        "mean_points",
+                        scenario_summary["scenario"] == "casemiro_counterfactual", "mean_points",
                     ].iloc[0],
                     2,
                 ),
                 "difference": round(
                     scenario_summary.loc[
-                        scenario_summary["scenario"] == "casemiro_counterfactual",
-                        "mean_points",
+                        scenario_summary["scenario"] == "casemiro_counterfactual", "mean_points",
                     ].iloc[0]
                     - float(ole_2021_22["points"].sum()),
                     2,
@@ -300,15 +292,13 @@ def run_analysis(config: ProjectConfig) -> dict[str, pd.DataFrame]:
                 "actual_observed_or_profile": float(actual_full_points),
                 "counterfactual_cdm_mean": round(
                     full_scenario_summary.loc[
-                        full_scenario_summary["scenario"] == "counterfactual_cdm",
-                        "mean_points",
+                        full_scenario_summary["scenario"] == "counterfactual_cdm", "mean_points",
                     ].iloc[0],
                     2,
                 ),
                 "difference": round(
                     full_scenario_summary.loc[
-                        full_scenario_summary["scenario"] == "counterfactual_cdm",
-                        "mean_points",
+                        full_scenario_summary["scenario"] == "counterfactual_cdm", "mean_points",
                     ].iloc[0]
                     - float(actual_full_points),
                     2,
@@ -367,7 +357,9 @@ def run_analysis(config: ProjectConfig) -> dict[str, pd.DataFrame]:
     save_table(period_summary, config.paths.outputs_tables / "pre_post_ronaldo_summary.csv")
     save_table(year_over_year, config.paths.outputs_tables / "year_over_year_comparison.csv")
     save_table(scenario_assumptions, config.paths.outputs_tables / "scenario_assumptions.csv")
-    save_table(match_probability_table, config.paths.outputs_tables / "match_simulation_probabilities.csv")
+    save_table(
+        match_probability_table, config.paths.outputs_tables / "match_simulation_probabilities.csv"
+    )
     save_table(scenario_summary, config.paths.outputs_tables / "simulation_summary.csv")
     save_table(scenario_comparison, config.paths.outputs_tables / "scenario_comparison.csv")
     save_table(distributions, config.paths.outputs_tables / "simulation_distributions.csv")
@@ -376,8 +368,7 @@ def run_analysis(config: ProjectConfig) -> dict[str, pd.DataFrame]:
         config.paths.outputs_tables / "full_season_match_simulation_probabilities.csv",
     )
     save_table(
-        full_scenario_summary,
-        config.paths.outputs_tables / "full_season_simulation_summary.csv",
+        full_scenario_summary, config.paths.outputs_tables / "full_season_simulation_summary.csv",
     )
     save_table(
         full_scenario_comparison,
@@ -392,12 +383,10 @@ def run_analysis(config: ProjectConfig) -> dict[str, pd.DataFrame]:
         config.paths.outputs_tables / "full_season_points_comparison.csv",
     )
     save_table(
-        sensitivity_analysis,
-        config.paths.outputs_tables / "sensitivity_analysis.csv",
+        sensitivity_analysis, config.paths.outputs_tables / "sensitivity_analysis.csv",
     )
     save_table(
-        executive_summary,
-        config.paths.outputs_tables / "executive_summary.csv",
+        executive_summary, config.paths.outputs_tables / "executive_summary.csv",
     )
 
     set_plot_style()
@@ -428,16 +417,14 @@ def run_analysis(config: ProjectConfig) -> dict[str, pd.DataFrame]:
         config.paths.outputs_figures / "full_season_points_comparison.png",
     )
     plot_scenario_comparison(
-        full_scenario_summary,
-        config.paths.outputs_figures / "full_season_scenario_comparison.png",
+        full_scenario_summary, config.paths.outputs_figures / "full_season_scenario_comparison.png",
     )
     plot_simulation_distribution(
         full_distributions,
         config.paths.outputs_figures / "full_season_simulation_distribution.png",
     )
     plot_sensitivity_analysis(
-        sensitivity_analysis,
-        config.paths.outputs_figures / "sensitivity_analysis.png",
+        sensitivity_analysis, config.paths.outputs_figures / "sensitivity_analysis.png",
     )
 
     return {

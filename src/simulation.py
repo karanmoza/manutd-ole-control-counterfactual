@@ -8,9 +8,7 @@ from features import expected_points_from_rates
 
 
 def build_counterfactual_matches(
-    actual_df: pd.DataFrame,
-    config: ProjectConfig,
-    scenario_name: str = "counterfactual_cdm",
+    actual_df: pd.DataFrame, config: ProjectConfig, scenario_name: str = "counterfactual_cdm",
 ) -> pd.DataFrame:
     """Apply scenario assumptions to create a counterfactual 2021/22 match profile."""
 
@@ -23,9 +21,7 @@ def build_counterfactual_matches(
         attack_shots_multiplier = scenario.casemiro_attack_shots_multiplier
         control_xg_bonus = scenario.casemiro_control_xg_bonus
         defensive_xga_multiplier = scenario.casemiro_defensive_xga_multiplier
-        defensive_shots_against_multiplier = (
-            scenario.casemiro_defensive_shots_against_multiplier
-        )
+        defensive_shots_against_multiplier = scenario.casemiro_defensive_shots_against_multiplier
         shot_suppression_xga_bonus = scenario.casemiro_shot_suppression_xga_bonus
     else:
         attack_xg_multiplier = scenario.attack_xg_multiplier
@@ -35,16 +31,14 @@ def build_counterfactual_matches(
         defensive_shots_against_multiplier = scenario.defensive_shots_against_multiplier
         shot_suppression_xga_bonus = scenario.shot_suppression_xga_bonus
 
-    counterfactual["cf_shots_for"] = (
-        counterfactual["shots_for"] * attack_shots_multiplier
-    ).round(2)
+    counterfactual["cf_shots_for"] = (counterfactual["shots_for"] * attack_shots_multiplier).round(
+        2
+    )
     counterfactual["cf_shots_against"] = (
         counterfactual["shots_against"] * defensive_shots_against_multiplier
     ).round(2)
     counterfactual["cf_xg"] = np.maximum(
-        scenario.minimum_xg_floor,
-        counterfactual["xg"] * attack_xg_multiplier
-        + control_xg_bonus,
+        scenario.minimum_xg_floor, counterfactual["xg"] * attack_xg_multiplier + control_xg_bonus,
     ).round(3)
     counterfactual["cf_xga"] = np.maximum(
         scenario.minimum_xga_floor,
@@ -59,10 +53,7 @@ def build_counterfactual_matches(
 
 
 def simulate_match_probabilities(
-    xg_for: float,
-    xg_against: float,
-    draws: int,
-    rng: np.random.Generator,
+    xg_for: float, xg_against: float, draws: int, rng: np.random.Generator,
 ) -> tuple[float, float, float, float]:
     """Simulate a single match many times and return win/draw/loss probabilities and mean points."""
 
@@ -76,11 +67,7 @@ def simulate_match_probabilities(
 
 
 def simulate_season_points(
-    df: pd.DataFrame,
-    xg_for_col: str,
-    xg_against_col: str,
-    draws: int,
-    seed: int = 7,
+    df: pd.DataFrame, xg_for_col: str, xg_against_col: str, draws: int, seed: int = 7,
 ) -> np.ndarray:
     """Simulate total points across a sequence of matches."""
 
@@ -94,9 +81,7 @@ def simulate_season_points(
 
 
 def build_simulation_outputs(
-    actual_df: pd.DataFrame,
-    scenario_dfs: dict[str, pd.DataFrame],
-    config: ProjectConfig,
+    actual_df: pd.DataFrame, scenario_dfs: dict[str, pd.DataFrame], config: ProjectConfig,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Create match-level probabilities, scenario summary, and simulation distributions."""
 
@@ -120,10 +105,7 @@ def build_simulation_outputs(
         for scenario_name, scenario_df in scenario_dfs.items():
             cf_row = scenario_df.loc[scenario_df["date"] == row["date"]].iloc[0]
             cf_probs = simulate_match_probabilities(
-                cf_row["cf_xg"],
-                cf_row["cf_xga"],
-                config.model.simulation_draws,
-                rng,
+                cf_row["cf_xg"], cf_row["cf_xga"], config.model.simulation_draws, rng,
             )
             match_rows.append(
                 {

@@ -18,28 +18,20 @@ def _pick_raw_file(raw_dir: Path, preferred_name: str, example_name: str) -> Pat
     if example_path.exists():
         return example_path
 
-    raise FileNotFoundError(
-        f"Could not find '{preferred_name}' or '{example_name}' in {raw_dir}."
-    )
+    raise FileNotFoundError(f"Could not find '{preferred_name}' or '{example_name}' in {raw_dir}.")
 
 
 def load_match_data(config: ProjectConfig) -> dict[str, pd.DataFrame]:
     """Load baseline and Ole-period match data from local CSV files."""
 
     baseline_path = _pick_raw_file(
-        config.paths.data_raw,
-        config.baseline_filename,
-        config.example_baseline_filename,
+        config.paths.data_raw, config.baseline_filename, config.example_baseline_filename,
     )
     ole_path = _pick_raw_file(
-        config.paths.data_raw,
-        config.ole_filename,
-        config.example_ole_filename,
+        config.paths.data_raw, config.ole_filename, config.example_ole_filename,
     )
     full_season_path = _pick_raw_file(
-        config.paths.data_raw,
-        config.full_season_filename,
-        config.example_full_season_filename,
+        config.paths.data_raw, config.full_season_filename, config.example_full_season_filename,
     )
 
     frames = {

@@ -23,4 +23,3 @@ def pct(value: float) -> str:
     """Format a decimal as a percentage string."""
 
     return f"{value:.1%}"
-

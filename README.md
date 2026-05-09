@@ -1,10 +1,20 @@
 # Manchester United Counterfactual: No Ronaldo, More Control?
 
+## Project Question
+
 This project studies a counterfactual football question:
 
 If Manchester United had not signed Cristiano Ronaldo in summer 2021, and had instead added a strong defensive midfielder profile, how might Ole Gunnar Solskjaer's 2021/22 league season have looked up to his exit in November 2021?
 
 The project is designed as a portfolio-grade, end-to-end Python workflow. It favors transparency and interpretability over black-box complexity. The goal is not to "prove" causality, but to build an honest model of how team-level match outcomes might have shifted under different squad assumptions.
+
+**Core thesis:** United added output when they needed control.
+
+## Application Memo
+
+A one-page memo version of this project was created for football data analyst applications:
+
+- [Karan Moza Manchester United Control Memo](memo/Karan_Moza_Manchester_United_Control_Memo.pdf)
 
 ## Key Findings
 
@@ -13,7 +23,7 @@ The project is designed as a portfolio-grade, end-to-end Python workflow. It fav
 - The result is best interpreted as a modest but meaningful improvement, not a radically different season.
 - The strategic takeaway is that United may have invested in the wrong capability in 2021: more attacking star power rather than more midfield control.
 
-## Data Source Note
+## Data Source
 
 The project now supports two practical raw-data paths:
 
@@ -22,7 +32,18 @@ The project now supports two practical raw-data paths:
 
 FBref remains a supported import format for local CSVs, but the automated end-to-end real-data run in this project uses Understat because FBref blocks automated requests in this environment.
 
-## What The Project Does
+## Evidence Trail
+
+The repo is organized to make the analytical path inspectable:
+
+1. `data/raw/` stores public match-level inputs or reproducible examples.
+2. `src/clean_data.py` and `src/features.py` standardize match records and create descriptive indicators.
+3. `outputs/tables/season_summary.csv` and `outputs/tables/pre_post_ronaldo_summary.csv` document the descriptive profile.
+4. `src/config.py` stores scenario assumptions.
+5. `src/simulation.py` converts actual and counterfactual xG/xGA rates into Poisson match simulations.
+6. `outputs/figures/` and `outputs/tables/` feed the application memo and supporting charts.
+
+## Model Approach
 
 The workflow has four layers:
 
@@ -37,6 +58,21 @@ The workflow has four layers:
 
 4. Forecasting and simulation
    Uses match-level Poisson simulations based on xG and xGA to compare the observed 2021/22 profile with the counterfactual version.
+
+## Counterfactual Scenarios
+
+- **Actual profile:** observed 2021/22 Manchester United match profile.
+- **Generic CDM scenario:** a profile-level defensive midfielder intervention, not a named-player estimate.
+- **Casemiro-style scenario:** an upper-bound illustration of what a more elite ball-winning/control profile might imply under the model assumptions.
+
+## Key Implementation Choices
+
+- A Poisson simulation is used because football scoring is low-event and match outcomes can be translated from xG/xGA into win, draw, and loss probabilities.
+- The model is a scenario exercise, not causal proof. It shows plausible outcome ranges under explicit assumptions.
+- The Generic CDM scenario is a profile scenario, not a claim about any single real player.
+- The Casemiro-style scenario is treated as an upper-bound illustration rather than a recruitment recommendation.
+- Assumptions live in `src/config.py` so the scenario can be challenged and rerun without editing modeling logic.
+- Example CSVs are committed so the repo can still run even when external public-data fetching fails.
 
 ## Project Structure
 
@@ -156,7 +192,11 @@ Supporting documents live in `docs/`, including:
 - `methodology.md`
 - `article_brief.md`
 
-## Counterfactual Logic
+Application memo:
+
+- `memo/Karan_Moza_Manchester_United_Control_Memo.pdf`
+
+## Assumptions
 
 The counterfactual is intentionally simple and editable:
 

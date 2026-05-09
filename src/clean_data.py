@@ -69,7 +69,9 @@ def _normalize_fbref_rows(df: pd.DataFrame) -> pd.DataFrame:
 def validate_standardized_columns(df: pd.DataFrame, season_label: str) -> None:
     """Validate required columns after alias mapping rather than before it."""
 
-    missing = [column for column in REQUIRED_COLUMNS_AFTER_STANDARDIZATION if column not in df.columns]
+    missing = [
+        column for column in REQUIRED_COLUMNS_AFTER_STANDARDIZATION if column not in df.columns
+    ]
     if missing:
         raise ValueError(
             f"Season {season_label} is missing required columns after standardization: {missing}. "
@@ -91,12 +93,10 @@ def _infer_shots_against(df: pd.DataFrame) -> pd.DataFrame:
         clean["notes"] = clean.get("notes", "").fillna("")
         clean["notes"] = clean["notes"].astype(str).str.strip()
         clean["notes"] = clean["notes"].where(
-            clean["notes"] == "",
-            clean["notes"] + " | shots_against imputed from xGA",
+            clean["notes"] == "", clean["notes"] + " | shots_against imputed from xGA",
         )
         clean["notes"] = clean["notes"].mask(
-            clean["notes"] == "",
-            "shots_against imputed from xGA",
+            clean["notes"] == "", "shots_against imputed from xGA",
         )
     return clean
 

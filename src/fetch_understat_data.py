@@ -13,7 +13,9 @@ from utils import ensure_directories
 TEAM_NAME = "Manchester United"
 
 
-def _extract_match_row(match: dict[str, object], shot_payload: dict[str, list[dict[str, object]]]) -> dict[str, object]:
+def _extract_match_row(
+    match: dict[str, object], shot_payload: dict[str, list[dict[str, object]]]
+) -> dict[str, object]:
     """Convert an Understat match record into the project's flat match schema."""
 
     side = match["side"]

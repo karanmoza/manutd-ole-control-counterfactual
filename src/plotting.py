@@ -36,10 +36,7 @@ def set_plot_style() -> None:
     )
 
 
-def plot_rolling_xg_diff(
-    matches: pd.DataFrame,
-    output_path: Path,
-) -> None:
+def plot_rolling_xg_diff(matches: pd.DataFrame, output_path: Path) -> None:
     """Plot rolling xG difference by season."""
 
     fig, ax = plt.subplots()
@@ -71,10 +68,7 @@ def plot_rolling_xg_diff(
     plt.close(fig)
 
 
-def plot_defensive_fragility(
-    df_2021_22: pd.DataFrame,
-    output_path: Path,
-) -> None:
+def plot_defensive_fragility(df_2021_22: pd.DataFrame, output_path: Path) -> None:
     """Plot rolling xGA and rolling shots against together."""
 
     fig, ax = plt.subplots()
@@ -111,10 +105,7 @@ def plot_defensive_fragility(
     plt.close(fig)
 
 
-def plot_actual_vs_expected_points(
-    df_2021_22: pd.DataFrame,
-    output_path: Path,
-) -> None:
+def plot_actual_vs_expected_points(df_2021_22: pd.DataFrame, output_path: Path) -> None:
     """Compare cumulative actual points and cumulative expected points."""
 
     fig, ax = plt.subplots()
@@ -152,10 +143,7 @@ def plot_actual_vs_expected_points(
     plt.close(fig)
 
 
-def plot_pre_post_comparison(
-    period_summary: pd.DataFrame,
-    output_path: Path,
-) -> None:
+def plot_pre_post_comparison(period_summary: pd.DataFrame, output_path: Path) -> None:
     """Plot pre/post Ronaldo comparison across core averages."""
 
     metrics = ["goals_for", "goals_against", "xg", "xga", "shots_against"]
@@ -164,12 +152,7 @@ def plot_pre_post_comparison(
     )
     fig, ax = plt.subplots(figsize=(13, 6))
     sns.barplot(
-        data=plot_df,
-        x="metric",
-        y="value",
-        hue="ronaldo_period",
-        palette=[NAVY, RED],
-        ax=ax,
+        data=plot_df, x="metric", y="value", hue="ronaldo_period", palette=[NAVY, RED], ax=ax,
     )
     ax.set_title("Pre vs Post Ronaldo Team Profile", loc="left", pad=28)
     ax.text(
@@ -214,11 +197,7 @@ def plot_scenario_comparison(
 
     fig, ax = plt.subplots()
     sns.barplot(
-        data=scenario_summary,
-        x="scenario",
-        y="mean_points",
-        palette=[GRAY, RED, GOLD],
-        ax=ax,
+        data=scenario_summary, x="scenario", y="mean_points", palette=[GRAY, RED, GOLD], ax=ax,
     )
     _annotate_bar_values(ax)
     ax.set_title(title, loc="left", pad=28)
@@ -237,16 +216,15 @@ def plot_scenario_comparison(
         "counterfactual_cdm": "Generic CDM",
         "casemiro_counterfactual": "Casemiro",
     }
-    ax.set_xticklabels([label_map.get(text.get_text(), text.get_text()) for text in ax.get_xticklabels()])
+    ax.set_xticklabels(
+        [label_map.get(text.get_text(), text.get_text()) for text in ax.get_xticklabels()]
+    )
     fig.tight_layout(rect=[0, 0, 1, 0.92])
     fig.savefig(output_path, dpi=200)
     plt.close(fig)
 
 
-def plot_simulation_distribution(
-    distributions: pd.DataFrame,
-    output_path: Path,
-) -> None:
+def plot_simulation_distribution(distributions: pd.DataFrame, output_path: Path) -> None:
     """Plot overlapping distributions of simulated points."""
 
     fig, ax = plt.subplots()
@@ -292,19 +270,12 @@ def plot_simulation_distribution(
     plt.close(fig)
 
 
-def plot_full_season_comparison(
-    comparison_table: pd.DataFrame,
-    output_path: Path,
-) -> None:
+def plot_full_season_comparison(comparison_table: pd.DataFrame, output_path: Path) -> None:
     """Plot actual full-season points against the counterfactual mean."""
 
     fig, ax = plt.subplots()
     sns.barplot(
-        data=comparison_table,
-        x="scenario",
-        y="points",
-        palette=[GRAY, RED, GOLD],
-        ax=ax,
+        data=comparison_table, x="scenario", y="points", palette=[GRAY, RED, GOLD], ax=ax,
     )
     _annotate_bar_values(ax)
     ax.set_title("Full 2021/22 Points: Actual vs CDM Counterfactual", loc="left", pad=28)
@@ -323,25 +294,20 @@ def plot_full_season_comparison(
         "counterfactual_cdm_mean": "Generic CDM",
         "casemiro_counterfactual_mean": "Casemiro",
     }
-    ax.set_xticklabels([label_map.get(text.get_text(), text.get_text()) for text in ax.get_xticklabels()])
+    ax.set_xticklabels(
+        [label_map.get(text.get_text(), text.get_text()) for text in ax.get_xticklabels()]
+    )
     fig.tight_layout(rect=[0, 0, 1, 0.92])
     fig.savefig(output_path, dpi=200)
     plt.close(fig)
 
 
-def plot_year_over_year_points(
-    yoy_table: pd.DataFrame,
-    output_path: Path,
-) -> None:
+def plot_year_over_year_points(yoy_table: pd.DataFrame, output_path: Path) -> None:
     """Plot points per match across baseline, Ole exit window, and full season."""
 
     fig, ax = plt.subplots()
     sns.barplot(
-        data=yoy_table,
-        x="window",
-        y="points_per_match",
-        palette=[NAVY, RED, SALMON],
-        ax=ax,
+        data=yoy_table, x="window", y="points_per_match", palette=[NAVY, RED, SALMON], ax=ax,
     )
     _annotate_bar_values(ax)
     ax.set_title("United's Points Profile Worsened Sharply After 2020/21", loc="left", pad=28)
@@ -361,18 +327,12 @@ def plot_year_over_year_points(
     plt.close(fig)
 
 
-def plot_year_over_year_profile(
-    yoy_table: pd.DataFrame,
-    output_path: Path,
-) -> None:
+def plot_year_over_year_profile(yoy_table: pd.DataFrame, output_path: Path) -> None:
     """Plot key year-over-year profile metrics."""
 
     metrics = ["xg_per_match", "xga_per_match", "shots_against_per_match"]
     plot_df = yoy_table.melt(
-        id_vars="window",
-        value_vars=metrics,
-        var_name="metric",
-        value_name="value",
+        id_vars="window", value_vars=metrics, var_name="metric", value_name="value",
     )
     metric_labels = {
         "xg_per_match": "xG per match",
@@ -383,12 +343,7 @@ def plot_year_over_year_profile(
 
     fig, ax = plt.subplots(figsize=(13, 6))
     sns.barplot(
-        data=plot_df,
-        x="metric",
-        y="value",
-        hue="window",
-        palette=[NAVY, RED, SALMON],
-        ax=ax,
+        data=plot_df, x="metric", y="value", hue="window", palette=[NAVY, RED, SALMON], ax=ax,
     )
     ax.set_title("The 2021/22 Drop-Off Was More Than A Results Swing", loc="left", pad=28)
     ax.text(
@@ -407,10 +362,7 @@ def plot_year_over_year_profile(
     plt.close(fig)
 
 
-def plot_sensitivity_analysis(
-    sensitivity_table: pd.DataFrame,
-    output_path: Path,
-) -> None:
+def plot_sensitivity_analysis(sensitivity_table: pd.DataFrame, output_path: Path) -> None:
     """Plot full-season points across sensitivity cases."""
 
     plot_df = sensitivity_table.copy()
@@ -418,18 +370,18 @@ def plot_sensitivity_analysis(
 
     fig, ax = plt.subplots(figsize=(13, 6.5))
     sns.barplot(
-        data=plot_df,
-        x="label",
-        y="mean_points",
-        palette=[NAVY, RED, GOLD, SALMON],
-        ax=ax,
+        data=plot_df, x="label", y="mean_points", palette=[NAVY, RED, GOLD, SALMON], ax=ax,
     )
     _annotate_bar_values(ax)
     actual_points = float(
         plot_df.loc[plot_df["scenario_type"] == "Observed actual", "actual_points"].iloc[0]
     )
     ax.axhline(actual_points, color=GRAY, linestyle="--", linewidth=1.5)
-    ax.set_title("Sensitivity Check: The Conclusion Survives More Than One Assumption Set", loc="left", pad=28)
+    ax.set_title(
+        "Sensitivity Check: The Conclusion Survives More Than One Assumption Set",
+        loc="left",
+        pad=28,
+    )
     ax.text(
         0,
         1.01,
@@ -441,8 +393,7 @@ def plot_sensitivity_analysis(
     ax.set_xlabel("")
     ax.set_ylabel("Full-season mean points")
     ax.set_xticklabels(
-        ["Actual", "Mild CDM", "Base CDM", "Strong CDM"],
-        rotation=0,
+        ["Actual", "Mild CDM", "Base CDM", "Strong CDM"], rotation=0,
     )
     fig.tight_layout(rect=[0, 0, 1, 0.92])
     fig.savefig(output_path, dpi=200)

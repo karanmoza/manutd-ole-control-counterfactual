@@ -13,14 +13,15 @@ def add_match_features(df: pd.DataFrame, model_config: ModelConfig) -> pd.DataFr
     enriched = df.copy().sort_values("date").reset_index(drop=True)
     enriched["match_number"] = np.arange(1, len(enriched) + 1)
     enriched["points"] = np.select(
-        [enriched["goals_for"] > enriched["goals_against"], enriched["goals_for"] == enriched["goals_against"]],
+        [
+            enriched["goals_for"] > enriched["goals_against"],
+            enriched["goals_for"] == enriched["goals_against"],
+        ],
         [3, 1],
         default=0,
     )
     enriched["result"] = np.select(
-        [enriched["points"] == 3, enriched["points"] == 1],
-        ["W", "D"],
-        default="L",
+        [enriched["points"] == 3, enriched["points"] == 1], ["W", "D"], default="L",
     )
     enriched["goal_diff"] = enriched["goals_for"] - enriched["goals_against"]
     enriched["xg_diff"] = enriched["xg"] - enriched["xga"]
@@ -123,9 +124,7 @@ def build_period_summary(df_2021_22: pd.DataFrame) -> pd.DataFrame:
 
 
 def build_year_over_year_comparison(
-    baseline_df: pd.DataFrame,
-    ole_df: pd.DataFrame,
-    full_df: pd.DataFrame,
+    baseline_df: pd.DataFrame, ole_df: pd.DataFrame, full_df: pd.DataFrame,
 ) -> pd.DataFrame:
     """Build a comparison table across the three main observed windows."""
 
