@@ -269,6 +269,30 @@
         grid-template-columns: 1fr;
       }
     }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        background:
+          radial-gradient(circle at top right, rgba(159,29,32,0.06), transparent 28%),
+          linear-gradient(180deg, #f3eee7 0%, #fbf8f3 100%);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        max-width: 1040px;
+        padding: 40px 18px 80px;
+      }
+
+      .article, .figure, .table-wrap, .method-box {
+        break-inside: avoid;
+      }
+    }
   </style>
 </head>
 <body>

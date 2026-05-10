@@ -150,6 +150,7 @@ From the project root:
 ```bash
 python src/fetch_understat_data.py
 python src/main.py
+python src/render_article.py
 ```
 
 If you open the notebooks in VS Code or Jupyter, select a Python environment with the packages in `requirements.txt`.
@@ -161,6 +162,13 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python3 src/main.py
+python3 src/render_article.py
+```
+
+PDF generation uses the HTML article as the source of truth and renders it through headless Chrome/Chromium. If Chrome is not installed in a standard location, set:
+
+```bash
+export CHROME_PATH="/path/to/chrome-or-chromium"
 ```
 
 ## What Gets Produced
@@ -191,10 +199,16 @@ Supporting documents live in `docs/`, including:
 - `executive_summary.md`
 - `methodology.md`
 - `article_brief.md`
+- `sample_article.html`
+- `sample_article.pdf`
 
 Application memo:
 
 - `memo/Karan_Moza_Manchester_United_Control_Memo.pdf`
+
+Sample article PDF:
+
+- `docs/sample_article.pdf`, rendered directly from `docs/sample_article.html` so the PDF matches the HTML article.
 
 ## Assumptions
 
