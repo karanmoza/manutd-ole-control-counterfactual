@@ -569,6 +569,99 @@
         <p>That is the lesson I keep coming back to.</p>
         <p>Ronaldo may not have been the whole problem. But he may have been the clearest sign that Manchester United solved the wrong one.</p>
 
+        <h2>Technical Appendix: Data, Models, and Reproducibility</h2>
+        <p>This appendix is included so the article's claims can be read in the right technical frame. The analysis is intentionally transparent and reproducible; it is not proprietary club data, not a causal proof, and not a scouting department replacement.</p>
+
+        <h3>1. Public data sources</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Source / input</th>
+                <th>Used for</th>
+                <th>Caveat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ole counterfactual</td>
+                <td>Public Manchester United Premier League match-level data, with the automated project path using Understat data and local CSV fallbacks in <code>data/raw/</code>.</td>
+                <td>Goals, xG, xGA, shots, shots against, points, rolling trends, and Poisson match simulations.</td>
+                <td>Match-level public data cannot isolate dressing-room effects, tactical instructions, player availability, or causal transfer impact.</td>
+              </tr>
+              <tr>
+                <td>Casemiro replacement screen</td>
+                <td>FBref-style / public aggregate player statistics, plus manual public context fields such as age, club, minutes, and availability notes.</td>
+                <td>Broad midfielder screening across Premier League, La Liga, Primeira Liga, Bundesliga, Ligue 1, and Serie A.</td>
+                <td>Public aggregate data is a screening layer, not club event data, tracking data, medical data, contract data, or final scouting evidence.</td>
+              </tr>
+              <tr>
+                <td>Event-data framing</td>
+                <td>StatsBomb open-data concepts and methodology notebooks.</td>
+                <td>Role-design logic for turnovers, recoveries, progression, and transition control.</td>
+                <td>StatsBomb open data covers selected competitions only and should not be treated as full proprietary 360 or market-wide scouting access.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>2. Ole counterfactual data preparation</h3>
+        <p>The match pipeline loads three windows: United's 2020/21 league baseline, the 2021/22 league run up to Ole Gunnar Solskjaer's exit, and the full 2021/22 league season. If preferred raw files are missing, the project falls back to included example CSVs so the workflow still runs.</p>
+        <p>The cleaning layer standardizes common FBref-style column names into a stable schema: date, opponent, venue, goals for, goals against, xG, xGA, shots for, and shots against. Dates are parsed, repeated header rows are removed, venue labels are normalized, and numeric fields are validated. If shots against is absent but xGA is available, the project imputes shots against from xGA as a practical first-pass proxy and flags that in the notes field.</p>
+        <p>The feature layer adds points, result, goal difference, xG difference, shot difference, cumulative points, cumulative expected points, and rolling three-match indicators for xG difference, xGA, and shots against.</p>
+
+        <h3>3. Ole counterfactual model</h3>
+        <p>The model uses a transparent Poisson scoring framework. For each match, United's xG is treated as the scoring-rate input and xGA as the concession-rate input. The model converts those rates into win, draw, and loss probabilities, then expected points.</p>
+        <p>The simulation uses 10,000 draws per season scenario. The model also computes expected points from Poisson scoreline probabilities up to a maximum of 10 goals. That cap is a practical truncation choice; for normal football xG values, probability mass above that range is negligible for this use case.</p>
+        <p>The counterfactual scenarios are team-profile adjustments, not player-specific causal estimates. The generic CDM case slightly reduces attacking xG and shots without Ronaldo, adds a small control xG bonus, and reduces xGA and shots against. The Casemiro-style case uses a stronger defensive/control adjustment and is treated as an upper-bound illustration rather than the main claim.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Scenario assumption</th>
+                <th>Base generic CDM value</th>
+                <th>Meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>attack_xg_multiplier</td><td>0.94</td><td>Slight reduction in attacking output without Ronaldo.</td></tr>
+              <tr><td>control_xg_bonus</td><td>0.05</td><td>Small attacking compensation from better midfield balance.</td></tr>
+              <tr><td>defensive_xga_multiplier</td><td>0.86</td><td>Improved defensive stability with a strong control midfielder.</td></tr>
+              <tr><td>defensive_shots_against_multiplier</td><td>0.90</td><td>Fewer shots conceded under the counterfactual build.</td></tr>
+              <tr><td>shot_suppression_xga_bonus</td><td>0.012</td><td>Extra xGA reduction tied to controlling shot volume.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>4. Casemiro replacement screen data preparation</h3>
+        <p>The player-screening project maps public aggregate player fields into canonical metric names, then creates per-90 rates, percentage metrics, and per-touch risk rates. It keeps Casemiro and Manuel Ugarte as reference profiles, not targets. The target pool excludes Manchester United players and also excludes players from Chelsea, Manchester City, Arsenal, and Liverpool, per the recruitment-universe constraint used in the project.</p>
+        <p>The project is built as of the May 2026 framing used in the portfolio repo. Age, club, minutes, and context fields are public/manual context fields, not live internal recruitment data.</p>
+
+        <h3>5. Casemiro replacement scoring model</h3>
+        <p>Every available input metric is converted to a 0-100 percentile-style score within the screened pool. For positive metrics, higher raw values score better. For negative metrics such as fouls, cards, miscontrols, dispossessions, and turnover rate, the percentile is inverted so safer players score better.</p>
+        <p>Category scores are calculated as the average of available input-metric scores. The final Control Midfielder Score is a weighted average: 30% defensive protection, 25% transition control, 25% possession security, 15% progressive value, and 5% age / availability.</p>
+        <p>The defensive gate is set at 45 on defensive protection. It is a minimum-evidence filter, not a final judgment on defensive ability. Players near the gate, such as Elliot Anderson, should be treated as video-review cases rather than rejected outright.</p>
+
+        <h3>6. What the code produces</h3>
+        <ul>
+          <li><code>python src/main.py</code> rebuilds the Ole counterfactual tables and figures.</li>
+          <li><code>python src/build_combined_article.py</code> rebuilds this combined article HTML and renders the matching PDF.</li>
+          <li><code>docs/united_control_article.html</code> is the source-of-truth article.</li>
+          <li><code>docs/united_control_article.pdf</code> is rendered directly from that HTML through headless Chrome / Chromium.</li>
+          <li>The Casemiro charts used in this article are copied into <code>docs/article_assets/casemiro/</code> so the article can render self-contained inside this repo.</li>
+        </ul>
+
+        <h3>7. What this analysis does not claim</h3>
+        <ul>
+          <li>It does not prove Ronaldo caused United's decline.</li>
+          <li>It does not prove a generic CDM or Casemiro would have delivered the exact simulated points totals.</li>
+          <li>It does not model wages, dressing-room dynamics, player injuries, tactical compliance, transfer feasibility, or manager decision-making.</li>
+          <li>It does not claim the Casemiro screen is proprietary scouting data or a final signing recommendation.</li>
+          <li>It should be read as a transparent public-data framework that turns a strategic football argument into inspectable assumptions, outputs, and scouting questions.</li>
+        </ul>
+
         <div class="footnote">This article draft combines two public-data portfolio projects: the Ole control counterfactual and the Casemiro Replacement Profile. It is a strategic analytics argument, not proprietary scouting data or a final recruitment recommendation.</div>
       </div>
     </article>
