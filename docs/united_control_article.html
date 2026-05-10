@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manchester United Don't Just Need a Casemiro Replacement. They Need Control.</title>
+  <style>
+    :root {
+      --bg: #f4efe8;
+      --paper: #fffdfa;
+      --ink: #1c2430;
+      --muted: #66717d;
+      --accent: #9f1d20;
+      --accent-soft: #ead2c8;
+      --navy: #18314d;
+      --gold: #b7891b;
+      --green: #2e8b57;
+      --line: #ddd6ce;
+      --panel: #f8f3ec;
+      --quote: #f0e8de;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top right, rgba(159,29,32,0.06), transparent 28%),
+        linear-gradient(180deg, #f3eee7 0%, #fbf8f3 100%);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.75;
+    }
+
+    .page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 40px 18px 80px;
+    }
+
+    .article {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: 0 22px 50px rgba(16, 23, 31, 0.08);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 56px 64px 38px;
+      background: linear-gradient(135deg, rgba(234,210,200,0.55), rgba(255,253,250,0.96));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(159,29,32,0.08);
+      border: 1px solid rgba(159,29,32,0.14);
+      padding: 8px 11px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.45rem, 4.2vw, 4.25rem);
+      line-height: 0.98;
+      margin: 0 0 16px;
+      letter-spacing: -0.04em;
+      max-width: 870px;
+    }
+
+    .subhead {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 800px;
+      margin: 0 0 24px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .content {
+      padding: 42px 64px 64px;
+    }
+
+    p {
+      margin: 0 0 18px;
+      font-size: 1.08rem;
+    }
+
+    .lede {
+      font-size: 1.22rem;
+    }
+
+    h2 {
+      margin: 48px 0 14px;
+      font-size: 1.9rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 30px 0 10px;
+      font-size: 1.22rem;
+      line-height: 1.2;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin: 28px 0 24px;
+    }
+
+    .metric {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.85);
+    }
+
+    .metric .label {
+      display: block;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .metric .value {
+      display: block;
+      font-size: 1.75rem;
+      line-height: 1.05;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .quote {
+      margin: 28px 0;
+      padding: 22px 24px;
+      background: var(--quote);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      font-size: 1.12rem;
+    }
+
+    .figure {
+      margin: 28px 0 32px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .figure img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      background: white;
+    }
+
+    .figure-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin: 26px 0 32px;
+    }
+
+    .caption {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-top: 12px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 24px 0 30px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: white;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.98rem;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid #ece6de;
+      vertical-align: top;
+    }
+
+    th {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      background: #faf7f2;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .method-box {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 20px;
+      margin: 30px 0;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+    }
+
+    .panel h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    ul, ol {
+      margin: 0 0 18px 20px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.03rem;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      margin: 42px 0 -22px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .footnote {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero, .content {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .method-box, .figure-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @page { size: A4; margin: 0; }
+
+    @media print {
+      body {
+        background:
+          radial-gradient(circle at top right, rgba(159,29,32,0.06), transparent 28%),
+          linear-gradient(180deg, #f3eee7 0%, #fbf8f3 100%);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        max-width: 1040px;
+        padding: 40px 18px 80px;
+      }
+
+      .article, .figure, .table-wrap, .method-box, .quote {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <article class="article">
+      <header class="hero">
+        <div class="eyebrow">Manchester United public-data article draft</div>
+        <h1>Manchester United Don't Just Need a Casemiro Replacement. They Need Control.</h1>
+        <p class="subhead">From the 2021 squad-building mistake to a public-data screen for United's next midfield profile.</p>
+        <div class="meta">
+          <span>Combined Ole counterfactual + Casemiro screen</span>
+          <span>Data: public match-level and aggregate player data</span>
+          <span>Output: HTML and PDF article draft</span>
+        </div>
+      </header>
+
+      <div class="content">
+        <p class="lede">There is a version of the Cristiano Ronaldo debate that is too easy.</p>
+        <p>One side says Ronaldo ruined Manchester United. The other says he scored goals in a broken team and became a convenient scapegoat. Both arguments have some truth in them, which is usually where football discourse goes to die.</p>
+        <p>I'm less interested in whether Ronaldo was the problem. I'm more interested in why he felt like the solution.</p>
+        <p>Because the most revealing thing about Manchester United's 2021 summer was not simply that they signed Cristiano Ronaldo. It was what that signing implied about how the club understood itself.</p>
+        <p>Ronaldo was the most glamorous answer imaginable: goals, history, aura, shirt sales, Champions League nights, emotional payoff. If the problem was a shortage of ruthlessness, the move made sense almost instantly.</p>
+        <p>But high-profile decisions are not always high-quality decisions.</p>
+        <p>The better question is not: was Ronaldo still good? He was. The better question is: did United use an elite squad-building resource on the capability they most urgently lacked?</p>
+        <p>And I think the answer is no.</p>
+        <div class="quote"><strong>Core thesis:</strong> United added output when they needed control.</div>
+        <p>That sentence is the starting point for this piece. The rest is an attempt to make it more disciplined.</p>
+        <p>First, I look back at the 2021 decision through a public-data counterfactual: what if United had added a control-oriented defensive midfielder instead of another elite attacker?</p>
+        <p>Then I take the same idea forward. If United's recurring problem is control, what should they actually look for in the next midfield signing?</p>
+        <p>Because replacing Casemiro should not mean finding the player who looks most like peak Casemiro. That would be a very United way of solving yesterday's problem. The next signing should not only win duels. It should prevent some of them from happening.</p>
+
+        <span class="section-kicker">Part 1</span>
+        <h2>The 2021 Question Was Never Just Ronaldo</h2>
+        <p>The Ronaldo transfer is still difficult to discuss cleanly because it sits at the intersection of nostalgia, celebrity, goals, and collapse.</p>
+        <p>But strip away the emotion and the football question becomes fairly simple.</p>
+        <p>United finished 2020/21 with 74 league points. They were not perfect, but they had a positive underlying profile. The following season, they fell to 58 points. By Ole Gunnar Solskjaer's exit, the decline was already visible.</p>
+        <p>The team did not just become a little less clinical. It became less stable.</p>
+        <p>In the sample I built from Understat match-level Premier League data, United went from 1.95 points per match in 2020/21 to 1.42 by Ole's exit in 2021/22, before recovering only slightly to 1.53 over the full season. The underlying process moved in the same direction: more danger conceded, more shots allowed, and a weakened xG profile.</p>
+
+        <div class="figure">
+          <img src="../outputs/figures/year_over_year_points.png" alt="United year-over-year points profile">
+          <div class="caption">United's points profile worsened sharply after 2020/21: from 74 points and 1.95 points per match to 58 points and 1.53 points per match in 2021/22.</div>
+        </div>
+
+        <div class="figure">
+          <img src="../outputs/figures/year_over_year_profile.png" alt="United year-over-year underlying profile">
+          <div class="caption">The decline was not only a table-position story. United conceded more danger, allowed more shots, and lost much of the xG cushion from the previous season.</div>
+        </div>
+
+        <p>That matters because once the decline is visible on its own terms, the Ronaldo debate becomes less interesting as a morality play.</p>
+        <p>The question is no longer: "Was Ronaldo good or bad?" The question becomes: "What type of problem did United actually have?"</p>
+        <p>And to me, it looks much more like a control problem than a finishing problem.</p>
+
+        <h2>Output vs Control</h2>
+        <p>Output is easy to see. Goals. Shots. Chance creation. Final-third production. Star forwards. Moments. The kind of things that make highlight packages and sell a transfer window.</p>
+        <p>Control is less glamorous.</p>
+        <p>It is the ability to keep the ball without constantly exposing yourself. It is midfield spacing. It is rest defence. It is suppressing transitions before they become panic. It is protecting centre-backs from facing repeated broken-field attacks. It is being able to move from one phase of the game to another without the entire structure collapsing.</p>
+        <p>Ronaldo solves output. A strong control midfielder solves something else.</p>
+        <p>He reduces the cost of losing the ball. He gives the team a better platform. He helps make attacks less desperate and defending less emergency-driven.</p>
+        <p>That is the distinction United seemed to miss.</p>
+        <p>To be clear, this is not an anti-Ronaldo argument. It is not even really about Ronaldo as an individual. It is about problem-solution fit.</p>
+        <p>If a team lacks finishing, adding one of the greatest finishers ever is coherent. If a team lacks control, adding another final-third star can make the team more exciting without making it more stable.</p>
+        <p>That is what United risked doing in 2021.</p>
+
+        <h2>What the Counterfactual Asked</h2>
+        <p>The model I built was deliberately simple.</p>
+        <p>I used public match-level Premier League data for Manchester United's 2020/21 season, the 2021/22 stretch up to Ole's exit, and the full 2021/22 campaign. The core variables were goals, xG, xGA, shots for, and shots against. I then simulated match outcomes with a Poisson goal model to estimate win, draw, and loss probabilities under alternative team profiles.</p>
+        <p>The counterfactual was not: what if United had signed a magical midfielder and fixed everything? That would be useless.</p>
+        <p>The actual question was narrower: what if United had slightly reduced attacking output without Ronaldo, but added a control-oriented defensive midfielder who improved defensive stability and shot suppression?</p>
+        <p>The main case was a generic elite CDM profile. Not a mystery superhero. Just the kind of capability type that was available in the market: someone closer to Manuel Locatelli or Boubakary Soumaré as a strategic profile, not a player-specific claim.</p>
+        <p>I also included a Casemiro-style scenario, but treated it as an upper-bound case. That matters. The Casemiro version is useful because United eventually bought that type of player in 2022. But if the entire piece becomes "United should have signed Casemiro earlier," it starts drifting into hindsight fan fiction.</p>
+        <p>The generic CDM is the cleaner strategy claim. The Casemiro scenario is the sharper secondary illustration.</p>
+
+        <div class="method-box">
+          <div class="panel">
+            <h3>Data and Model</h3>
+            <p>Public match-level Premier League data, transformed into a transparent scenario model using xG, xGA, goals, shots, and Poisson simulations.</p>
+          </div>
+          <div class="panel">
+            <h3>Counterfactual Logic</h3>
+            <ul>
+              <li>Without Ronaldo, attacking output falls slightly.</li>
+              <li>A control midfielder improves defensive stability.</li>
+              <li>The generic CDM is the main strategy case.</li>
+              <li>The Casemiro-style case is an upper-bound illustration.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2>The Result: Better, But Not Magically Fixed</h2>
+        <p>By Ole's exit, United had taken 17 actual league points.</p>
+        <p>The model's observed-profile simulation came out around 16 points, which is close enough to treat the baseline as reasonable. The generic CDM scenario lifted the expected points total to about 18.1. The Casemiro-style upper-bound lifted it to about 19.2.</p>
+
+        <div class="figure">
+          <img src="../outputs/figures/scenario_comparison.png" alt="Scenario comparison to Ole's exit">
+          <div class="caption">Scenario comparison to Ole's exit: a control-oriented midfield alternative improves the expected points profile, but not enough to erase every problem in the team.</div>
+        </div>
+
+        <p>That is not transformational. It does not save the season by itself. It does not turn United into a title challenger.</p>
+        <p>But it does matter. It suggests that a more control-oriented midfield alternative probably improves the early-season trajectory. Not enough to erase everything wrong with the team, but enough to say the fit would likely have been better.</p>
+        <p>Across the full league season, the same pattern holds. United actually finished with 58 points. The generic CDM scenario raised that to about 61.2. The stronger Casemiro-style case raised the mean to roughly 64.5.</p>
+        <p>Again, this is not a miracle. And that is why I trust it more.</p>
+        <p>A counterfactual that turns United into a 90-point team would be nonsense. This one says something more modest and more believable: better midfield control probably improves United, but one transfer does not fix an institution.</p>
+
+        <div class="figure">
+          <img src="../outputs/figures/full_season_points_comparison.png" alt="Full 2021/22 points comparison">
+          <div class="caption">Full 2021/22 actual vs generic CDM vs Casemiro-style scenario. The counterfactual shifts United upward, but not into a different universe.</div>
+        </div>
+
+        <div class="figure-grid">
+          <div class="figure">
+            <img src="../outputs/figures/full_season_scenario_comparison.png" alt="Full season scenario comparison">
+            <div class="caption">The full-season comparison makes the trade-off legible: more midfield control produces a higher expected total, but not a title-level jump.</div>
+          </div>
+          <div class="figure">
+            <img src="../outputs/figures/full_season_simulation_distribution.png" alt="Full season simulation distribution">
+            <div class="caption">The distribution matters more than one number. Better squad building improves the odds rather than guaranteeing a future.</div>
+          </div>
+        </div>
+
+        <h2>The Conclusion Is Not That Ronaldo Caused The Collapse</h2>
+        <p>The model does not prove that Ronaldo caused United's decline. It does not prove that Casemiro would definitely have delivered 64 or 65 points. It does not prove that one better signing would have saved Ole, repaired the dressing room, modernised the club, solved pressing structure, or fixed years of incoherent squad planning.</p>
+        <p>That would be too simple.</p>
+        <p>What it does show is narrower and more useful. Once you model United as a team that needed control and protection rather than more star finishing, the alternative profile improves the outcome in a plausible way.</p>
+        <p>That is enough to support the strategic conclusion: Ronaldo may not have been the whole problem. But he may have been the clearest sign that United misdiagnosed what kind of solution they actually needed.</p>
+        <p>And that is why the lesson still matters.</p>
+        <p>Because United are now facing another version of the same question.</p>
+        <p>Casemiro is ageing. Ugarte gives them defensive/security value but not enough progression. Mainoo's long-term role still needs careful thought. Bruno is still Bruno: brilliant, chaotic, high-value, high-variance.</p>
+        <p>So if United need midfield control, what should they actually buy?</p>
+
+        <span class="section-kicker">Part 2</span>
+        <h2>Replacing Casemiro Should Not Mean Cloning Casemiro</h2>
+        <p>This is where I think the conversation can go wrong.</p>
+        <p>If you frame the problem as "replace Casemiro," the instinct is to search for someone who looks like Casemiro statistically: tackles, interceptions, duels, defensive output.</p>
+        <p>That is part of it. But it is not enough.</p>
+        <p>Peak Casemiro was an elite defensive midfielder because he could destroy attacks, dominate duels, screen the back line, and make decisive defensive interventions. But United's current problem is not only that they need someone to win more duels.</p>
+        <p>They need someone who reduces how often the team has to live in duels.</p>
+        <p>That is a different brief.</p>
+        <p>The next midfielder needs to preserve enough of the defensive floor while improving the possession-control problem. He must help United stay connected in midfield, avoid cheap turnovers, manage transitions, and progress the ball without turning every possession into a coin flip.</p>
+        <div class="quote"><strong>The next signing should not only win duels.</strong><br>It should prevent some of them from happening.</div>
+
+        <h2>Building a Public-Data Control Midfielder Screen</h2>
+        <p>To make that idea more concrete, I built a public-data recruitment screen for a modern Casemiro replacement profile.</p>
+        <p>This is not proprietary scouting data. It is not a final signing verdict. It is a transparent framework for turning an abstract tactical need — "more control" — into measurable recruitment traits.</p>
+        <p>The model scores midfielders across five categories:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Weight</th>
+                <th>Why it matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Defensive protection</td><td>30%</td><td>Preserve the defensive floor</td></tr>
+              <tr><td>Transition control</td><td>25%</td><td>Reduce chaos after possession breaks</td></tr>
+              <tr><td>Possession security</td><td>25%</td><td>Help United keep the ball and control rhythm</td></tr>
+              <tr><td>Progressive value</td><td>15%</td><td>Move play forward without becoming reckless</td></tr>
+              <tr><td>Age / availability</td><td>5%</td><td>Add practical squad-building context</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>The weights are subjective, but they are not random.</p>
+        <p>Defensive protection gets the highest weight because the player still has to survive defensive responsibility. If the next midfielder cannot protect the back line, he is not a Casemiro replacement profile in any meaningful sense.</p>
+        <p>Transition control gets 25% because United's issue is not only settled defending. It is what happens after possession breaks. Can the player recover loose balls, slow counters, avoid cheap fouls, and stop chaos early?</p>
+        <p>Possession security also gets 25% because this is the heart of the thesis. United need control. A midfielder who constantly loses possession will recreate the same emergency-defending problem even if he is good at winning the ball back.</p>
+        <p>Progressive value gets 15% because United still need the player to move the ball forward. But this should not become a pure creator search. The role is not "find another Bruno." It is "find someone who can progress play without making the structure more fragile."</p>
+        <p>Age and availability get 5% because recruitment is not abstract. But I kept it light because age should not overpower the football profile.</p>
+        <p>The basic formula is: 30% defensive protection + 25% transition control + 25% possession security + 15% progressive value + 5% age/availability.</p>
+        <p>Each input metric is converted into a percentile-style score within the screened pool. For negative events — fouls, cards, miscontrols, dispossessions, turnover rate — the score is inverted so safer players are rewarded.</p>
+        <p>A 100 does not mean "world class." It means the player is high relative to this public screened pool. That distinction matters.</p>
+
+        <h2>Why I Used a Defensive Gate</h2>
+        <p>There is one more piece of the model that needs explaining: the defensive gate.</p>
+        <p>If defensive protection already has the highest weight, why add a gate at all?</p>
+        <p>Because a weight ranks players. A gate enforces a minimum requirement.</p>
+        <p>A player can still score highly overall if he is elite in possession security and progression. That is useful, but for this specific role it creates a risk. The model could surface elegant possession players who do not have enough defensive evidence to survive United's midfield environment.</p>
+        <p>So I used a light defensive-protection gate.</p>
+        <p>Not as a final judgment. Not as a claim that players below it cannot defend. Just as a minimum-evidence filter for this particular brief.</p>
+        <p>This distinction becomes important with two players: Exequiel Palacios and Elliot Anderson.</p>
+        <p>Palacios clears the gate narrowly. Anderson falls just below it. The gap is small enough that no serious person should treat it as definitive. It should trigger video review, not certainty.</p>
+        <p>That is the whole point. The model does not replace scouting. It tells scouts what to test.</p>
+
+        <div class="figure">
+          <img src="article_assets/casemiro/defensive_gate_diagnostic.png" alt="Defensive gate diagnostic">
+          <div class="caption">The defensive gate diagnostic shows why Palacios and Anderson are borderline cases. The screen is useful, but the gap should trigger video review rather than certainty.</div>
+        </div>
+
+        <h2>What the Screen Suggests</h2>
+        <p>The final output does not produce one obvious answer.</p>
+        <p>That is a feature, not a bug.</p>
+        <p>Football recruitment is not about finding the highest number and turning your brain off. The value of a model like this is that it separates different types of fit.</p>
+        <p>The screen produced three useful archetypes.</p>
+
+        <div class="figure">
+          <img src="article_assets/casemiro/security_vs_defensive_floor.png" alt="Control matrix for midfield candidates">
+          <div class="caption">The control matrix makes the central trade-off visible: who adds possession security without losing the defensive floor?</div>
+        </div>
+
+        <h3>1. Exequiel Palacios — the control/progression leader</h3>
+        <p>Palacios leads the weighted screen because he scores extremely well on possession security and progression. In plain English: he looks like the cleanest control profile in the data.</p>
+        <p>But he should not be read as the strongest like-for-like Casemiro replacement. That would be lazy.</p>
+        <p>His defensive score is the weak point. He narrowly clears the defensive gate, which means the first scouting question is obvious: does his defensive work translate to a United environment that has often been transition-heavy and structurally exposed?</p>
+        <p>So the Palacios interpretation is: best control/progression profile, but requires defensive translation and availability review.</p>
+        <p>That is not a criticism. It is the exact trade-off the model is supposed to reveal.</p>
+
+        <div class="figure">
+          <img src="article_assets/casemiro/ranked_control_midfielder_score.png" alt="Ranked control midfielder shortlist">
+          <div class="caption">Ranked shortlist from the Casemiro replacement screen. The bar length is the final weighted score, not a direct scouting grade.</div>
+        </div>
+
+        <h3>2. Johnny Cardoso — the cleaner two-axis fit</h3>
+        <p>Cardoso is the cleaner defensive/security profile.</p>
+        <p>He scores much better than Palacios defensively while still clearing a strong possession-security level. That makes him the more balanced "Casemiro replacement" profile if the requirement is defensive floor plus safer possession.</p>
+        <p>The question with Cardoso is slightly different.</p>
+        <p>Can he progress the ball enough? Can he be more than a secure defensive midfielder? Would he help United control games, or would he solve one problem while leaving progression too dependent on others?</p>
+        <p>That is a real question, but it is a better question than just asking who wins the most tackles.</p>
+
+        <div class="figure">
+          <img src="article_assets/casemiro/possession_security_breakdown.png" alt="Possession security breakdown">
+          <div class="caption">The possession breakdown separates players who simply pass safely from players who are actively available, involved, and secure under volume.</div>
+        </div>
+
+        <h3>3. Hjulmand, Florentino, Wieffer — the defensive-floor group</h3>
+        <p>Morten Hjulmand, Florentino Luís, and Mats Wieffer preserve more of the defensive floor, but each comes with a different concern.</p>
+        <p>Hjulmand looks like a serious role-context fit, but the question is whether he is clean enough under pressure to solve United's control issue.</p>
+        <p>Florentino is the defensive-floor anchor. He gives you protection, but the possession and progression limitations are hard to ignore in a control brief.</p>
+        <p>Wieffer is more balanced, but the question becomes mobility and transition coverage. Does he give enough physically and defensively for the environment United are trying to build?</p>
+        <p>This is exactly why the model is useful. It does not just say "Player A is better than Player B." It tells you what type of problem each player solves, and what kind of problem he may create.</p>
+
+        <h2>The Watchlist Matters Too</h2>
+        <p>The defensive gate also creates an interesting watchlist.</p>
+        <p>Elliot Anderson is the most important example. He sits just below the defensive gate but scores well enough elsewhere that he should not be dismissed. His profile belongs in a borderline bucket: potentially interesting, but requiring video and role-context review.</p>
+        <p>Then there are players like Angelo Stiller and Aleix García, who look excellent in possession but sit much further away from the defensive evidence needed for this specific role. That does not make them bad players. It means they may fit a different midfield brief.</p>
+        <p>This is the part of recruitment discourse fans often flatten.</p>
+        <p>A player can be good and still wrong for the problem.</p>
+        <p>United have suffered from that for years.</p>
+
+        <h2>What Scouts Should Test Next</h2>
+        <p>A public-data screen should end with scouting questions, not fake certainty.</p>
+        <ul>
+          <li><strong>Palacios:</strong> Can his defensive work translate to United's transition-heavy environment? Is the availability/injury history acceptable? Does he receive under pressure in central zones, or mostly in cleaner structures?</li>
+          <li><strong>Cardoso:</strong> Does his defensive range hold against Premier League tempo? Can he progress play enough to avoid becoming too conservative?</li>
+          <li><strong>Hjulmand:</strong> Is he clean enough under pressure to solve the control issue, or is he more of a defensive stabiliser than a possession controller?</li>
+          <li><strong>Florentino:</strong> Is the possession limitation too severe for a control brief?</li>
+          <li><strong>Wieffer:</strong> Does he offer enough mobility and transition coverage?</li>
+        </ul>
+        <p>Those are the questions the model points toward.</p>
+        <p>Not "sign this player." Not "the spreadsheet has spoken." Just: here is how the next scouting conversation should begin.</p>
+
+        <h2>The Broader Lesson</h2>
+        <p>The 2021 counterfactual and the Casemiro replacement screen are really the same argument at two different points in time.</p>
+        <p>In 2021, United added output when they needed control.</p>
+        <p>Now, as they think about the next midfield profile, the danger is similar: solving the visible problem instead of the structural one.</p>
+        <p>The visible problem is Casemiro ageing. The structural problem is control.</p>
+        <p>If United define the task as "find another duel-winner," they risk solving a narrow version of the problem. If they define it as "find a midfielder who preserves defensive protection while improving possession security and transition control," the conversation becomes much more useful.</p>
+        <p>That does not guarantee the right signing. But it does improve the quality of the question.</p>
+        <p>And in football, as in most businesses, bad answers often start with bad questions.</p>
+        <p>United's 2021 summer looked exciting because Ronaldo was an exciting answer.</p>
+        <p>But the team did not need the most emotionally satisfying answer. It needed the most structurally useful one.</p>
+        <p>That is the lesson I keep coming back to.</p>
+        <p>Ronaldo may not have been the whole problem. But he may have been the clearest sign that Manchester United solved the wrong one.</p>
+
+        <div class="footnote">This article draft combines two public-data portfolio projects: the Ole control counterfactual and the Casemiro Replacement Profile. It is a strategic analytics argument, not proprietary scouting data or a final recruitment recommendation.</div>
+      </div>
+    </article>
+  </div>
+</body>
+</html>

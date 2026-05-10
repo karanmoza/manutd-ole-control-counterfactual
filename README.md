@@ -151,6 +151,7 @@ From the project root:
 python src/fetch_understat_data.py
 python src/main.py
 python src/render_article.py
+python src/build_combined_article.py
 ```
 
 If you open the notebooks in VS Code or Jupyter, select a Python environment with the packages in `requirements.txt`.
@@ -163,6 +164,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 python3 src/main.py
 python3 src/render_article.py
+python3 src/build_combined_article.py
 ```
 
 PDF generation uses the HTML article as the source of truth and renders it through headless Chrome/Chromium. If Chrome is not installed in a standard location, set:
@@ -201,6 +203,8 @@ Supporting documents live in `docs/`, including:
 - `article_brief.md`
 - `sample_article.html`
 - `sample_article.pdf`
+- `united_control_article.html`
+- `united_control_article.pdf`
 
 Application memo:
 
@@ -209,6 +213,11 @@ Application memo:
 Sample article PDF:
 
 - `docs/sample_article.pdf`, rendered directly from `docs/sample_article.html` so the PDF matches the HTML article.
+
+Combined United control article:
+
+- `docs/united_control_article.html`
+- `docs/united_control_article.pdf`, rendered directly from the HTML article and combining the Ole counterfactual with the Casemiro replacement screen.
 
 ## Assumptions
 
